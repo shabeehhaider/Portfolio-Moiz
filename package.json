@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-moiz",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@quasar/extras": "^1.16.11",
+    "@splidejs/vue-splide": "^0.6.12",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "emailjs-com": "^3.2.0",
+    "quasar": "^2.16.4",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.7.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.77.2",
+    "vite": "^5.2.0"
+  }
+}
