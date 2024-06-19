@@ -30,42 +30,58 @@
 <script setup>
 import { ref } from 'vue';
 
-const activeCategory = ref('all'); 
+// Importing images with shorthand references
+import img1 from '../assets/my-work/kia.png';
+import img2 from '../assets/my-work/peugeot.jpeg';
+import img3 from '../assets/my-work/netflix.jpeg';
+import img4 from '../assets/my-work/revo.jpeg';
+import img5 from '../assets/my-work/toyota-yaris-entertainment.jpeg';
+import img6 from '../assets/my-work/yaris.jpeg';
+import img7 from '../assets/my-work/mg-anthem.jpeg';
+import img8 from '../assets/my-work/Panther Tyres - King 56.jpeg';
+import img9 from '../assets/my-work/Coca Cola - Hum Aik Hain.jpeg';
+import img10 from '../assets/my-work/Jazz Cash - Debit Card.jpeg';
+import img11 from '../assets/my-work/sprite–wooo-sahhh-2.jpeg';
+import img12 from '../assets/my-work/mobily-sequence-1.png';
+import img13 from '../assets/my-work/mobily-sequence-2.png';
+import img14 from '../assets/my-work/mobily-sequence-3.png';
+import img15 from '../assets/my-work/mobily-sequence-4.png';
+
+const activeCategory = ref('all');
 
 const allVideos = ref([
-  { image: '/src/assets/my-work/kia.png', video: 'https://player.vimeo.com/video/954996067' },
-  { image: '/src/assets/my-work/peugeot.jpeg', video: 'https://player.vimeo.com/video/954995426' },
-  { image: '/src/assets/my-work/netflix.jpeg', video: 'https://player.vimeo.com/video/954994541' },
-  { image: '/src/assets/my-work/revo.jpeg', video: 'https://player.vimeo.com/video/954992368' },
-  { image: '/src/assets/my-work/toyota-yaris-entertainment.jpeg', video: 'https://player.vimeo.com/video/954986732' },
-  { image: '/src/assets/my-work/yaris.jpeg', video: 'https://player.vimeo.com/video/954985999' },
-  { image: '/src/assets/my-work/mg-anthem.jpeg', video: 'https://player.vimeo.com/video/954972354' },
-  { image: '/src/assets/my-work/Panther Tyres - King 56.jpeg', video: 'https://player.vimeo.com/video/952827765' },
-  { image: '/src/assets/my-work/Coca Cola - Hum Aik Hain.jpeg', video: 'https://player.vimeo.com/video/952819684' },
-  { image: '/src/assets/my-work/Jazz Cash - Debit Card.jpeg', video: 'https://player.vimeo.com/video/952824687' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-2.jpeg', video: 'https://player.vimeo.com/video/952829011' },
-  { image: '/src/assets/my-work/mobily-sequence-1.png', video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
-  { image: '/src/assets/my-work/mobily-sequence-2.png', video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
-  { image: '/src/assets/my-work/mobily-sequence-3.png', video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
-  { image: '/src/assets/my-work/mobily-sequence-4.png', video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
+  { image: img1, video: 'https://player.vimeo.com/video/954996067' },
+  { image: img2, video: 'https://player.vimeo.com/video/954995426' },
+  { image: img3, video: 'https://player.vimeo.com/video/954994541' },
+  { image: img4, video: 'https://player.vimeo.com/video/954992368' },
+  { image: img5, video: 'https://player.vimeo.com/video/954986732' },
+  { image: img6, video: 'https://player.vimeo.com/video/954985999' },
+  { image: img7, video: 'https://player.vimeo.com/video/954972354' },
+  { image: img8, video: 'https://player.vimeo.com/video/952827765' },
+  { image: img9, video: 'https://player.vimeo.com/video/952819684' },
+  { image: img10, video: 'https://player.vimeo.com/video/952824687' },
+  { image: img11, video: 'https://player.vimeo.com/video/952829011' },
+  { image: img12, video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
+  { image: img13, video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
+  { image: img14, video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
+  { image: img15, video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
 ]);
 
 const commercialsVideos = ref([
-  { image: '/src/assets/my-work/mobily-sequence-1.png', video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
-  { image: '/src/assets/my-work/mobily-sequence-2.png', video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
-  { image: '/src/assets/my-work/mobily-sequence-3.png', video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
-  { image: '/src/assets/my-work/mobily-sequence-4.png', video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
-  { image: '/src/assets/my-work/kia.png', video: 'https://player.vimeo.com/video/954996067' },
-  { image: '/src/assets/my-work/peugeot.jpeg', video: 'https://player.vimeo.com/video/954995426' },
-  { image: '/src/assets/my-work/revo.jpeg', video: 'https://player.vimeo.com/video/954992368' },
-  { image: '/src/assets/my-work/toyota-yaris-entertainment.jpeg', video: 'https://player.vimeo.com/video/954986732' },
-  { image: '/src/assets/my-work/yaris.jpeg', video: 'https://player.vimeo.com/video/954985999' },
-  { image: '/src/assets/my-work/mg-anthem.jpeg', video: 'https://player.vimeo.com/video/954972354' },
-  { image: '/src/assets/my-work/Panther Tyres - King 56.jpeg', video: 'https://player.vimeo.com/video/952827765' },
-  { image: '/src/assets/my-work/Coca Cola - Hum Aik Hain.jpeg', video: 'https://player.vimeo.com/video/952819684' },
-  { image: '/src/assets/my-work/Jazz Cash - Debit Card.jpeg', video: 'https://player.vimeo.com/video/952824687' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-2.jpeg', video: 'https://player.vimeo.com/video/952829011' },
-  
+  { image: img12, video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
+  { image: img13, video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
+  { image: img14, video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
+  { image: img15, video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
+  { image: img1, video: 'https://player.vimeo.com/video/954996067' },
+  { image: img2, video: 'https://player.vimeo.com/video/954995426' },
+  { image: img4, video: 'https://player.vimeo.com/video/954992368' },
+  { image: img5, video: 'https://player.vimeo.com/video/954986732' },
+  { image: img6, video: 'https://player.vimeo.com/video/954985999' },
+  { image: img7, video: 'https://player.vimeo.com/video/954972354' },
+  { image: img8, video: 'https://player.vimeo.com/video/952827765' },
+  { image: img9, video: 'https://player.vimeo.com/video/952819684' },
+  { image: img10, video: 'https://player.vimeo.com/video/952824687' },
+  { image: img11, video: 'https://player.vimeo.com/video/952829011' },
 ]);
 
 const showAll = () => {
@@ -89,6 +105,7 @@ const closeIframe = () => {
   iframeSrc.value = '';
 };
 </script>
+
 
 <style lang="scss" scoped>
 .work {
