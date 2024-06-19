@@ -62,7 +62,7 @@
 </template>
 
 <script setup>
-import { ref , computed } from 'vue';
+import { ref, computed } from 'vue';
 import emailjs from 'emailjs-com';
 
 const form = ref({
@@ -103,7 +103,7 @@ const validateField = (field) => {
       errors.value.subject = form.value.subject ? '' : 'Subject is required';
       break;
     case 'message':
-      errors.value.message = form.value.message  ? '' : 'Message is required';
+      errors.value.message = form.value.message ? '' : 'Message is required';
       break;
     default:
       break;
@@ -121,9 +121,9 @@ const submitForm = async () => {
 
   if (!hasErrors.value) {
     try {
-      const serviceID = 'service_xlxdk0s'; 
-      const templateID = 'template_5v20b45'; 
-      const userID = '2Fwx-Wg3KGL9pXE84'; 
+      const serviceID = 'service_xlxdk0s';
+      const templateID = 'template_5v20b45';
+      const userID = '2Fwx-Wg3KGL9pXE84';
 
       const response = await emailjs.send(serviceID, templateID, form.value, userID);
       if (response.status === 200) {
@@ -171,7 +171,7 @@ const submitForm = async () => {
   margin-bottom: 15px;
 }
 
-.contact-details p{
+.contact-details p {
   margin-bottom: 0px;
 }
 
@@ -195,14 +195,14 @@ const submitForm = async () => {
   width: 100%;
 }
 
-.contact-form input{
+.contact-form input {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.contact-form textarea{
+.contact-form textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -227,5 +227,29 @@ const submitForm = async () => {
 .error {
   color: red;
   font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .contact-text, .contact-details, .contact-form {
+    max-width: 90%;
+  }
+  
+  .contact-form div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-img {
+    height: 300px;
+  }
+
+  .contact-text h1, .contact-details h1, .contact-form h1 {
+    font-size: 20px;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
 }
 </style>

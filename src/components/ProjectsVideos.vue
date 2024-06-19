@@ -151,6 +151,14 @@ onMounted(() => {
   position: relative;
   width: 100vw;
   height: 760px;
+
+  @media (max-width: 768px) {
+    height: 400px; // Adjust the height for tablets
+  }
+
+  @media (max-width: 480px) {
+    height: 250px; // Adjust the height for mobile phones
+  }
 }
 
 video {
@@ -168,16 +176,44 @@ video {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   border-radius: 5px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    bottom: 30px; // Adjust the position for tablets
+    padding: 8px 16px;
+  }
+
+  @media (max-width: 480px) {
+    bottom: 20px; // Adjust the position for mobile phones
+    padding: 6px 12px;
+    font-size: 0.8em; // Adjust font size for mobile phones
+  }
 }
 
 h3 {
   margin: 0;
   font-size: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1.3em; // Adjust font size for tablets
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2em; // Adjust font size for mobile phones
+  }
 }
 
 p {
   margin: 0;
   font-size: 1em;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em; // Adjust font size for tablets
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8em; // Adjust font size for mobile phones
+  }
 }
 
 .iframe-modal {
@@ -200,13 +236,32 @@ p {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 90%; // Adjust width for tablets
+    max-width: 600px;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%; // Adjust width for mobile phones
+    max-width: 400px;
+  }
 }
 
 iframe {
   width: 100%;
   height: 450px;
   border: none;
+
+  @media (max-width: 768px) {
+    height: 350px; // Adjust height for tablets
+  }
+
+  @media (max-width: 480px) {
+    height: 250px; // Adjust height for mobile phones
+  }
 }
+
 </style>
 
 <style>

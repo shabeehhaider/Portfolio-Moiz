@@ -112,6 +112,7 @@ const closeIframe = () => {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 
     .explore-btn {
       background: #28e98c;
@@ -136,7 +137,6 @@ const closeIframe = () => {
     font-size: 18px;
     padding: 10px;
     cursor: pointer;
-
 
     &.active {
       border-bottom: 1px solid;
@@ -163,6 +163,86 @@ const closeIframe = () => {
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    padding: 40px 0px;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .btns {
+      .explore-btn {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 8px;
+      }
+    }
+
+    .work-images {
+      .work-link {
+        height: 180px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 0px;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .btns {
+      .explore-btn {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 6px;
+      }
+    }
+
+    .work-images {
+      .work-link {
+        height: 160px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0px;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    .btns {
+      gap: 5px;
+
+      .explore-btn {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 5px;
+      }
+    }
+
+    .work-images {
+      .work-link {
+        height: 140px;
+      }
+    }
+  }
 }
 
 .iframe-modal {
@@ -180,12 +260,27 @@ const closeIframe = () => {
   .iframe-container {
     position: relative;
     width: 80%;
-    height: 80%;
+    height: 50%;
 
     iframe {
       width: 100%;
       height: 100%;
     }
   }
+
+  @media (max-width: 768px) {
+    .iframe-container {
+      width: 90%;
+      height: 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .iframe-container {
+      width: 95%;
+      height: 30%;
+    }
+  }
 }
 </style>
+

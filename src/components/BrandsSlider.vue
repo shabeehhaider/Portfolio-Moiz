@@ -97,11 +97,12 @@ const images = ref([
   border-top-right-radius: 20px;
 
   h1 {
-      color: #fefefe; 
-      font-size: 24px;
-      font-weight: 600; 
-      font-family: "Poppins", sans-serif;
-      text-align: center;
+    color: #fefefe; 
+    font-size: 24px;
+    font-weight: 600; 
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   .image-container {
@@ -111,6 +112,7 @@ const images = ref([
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto; // Center images horizontally
   }
 
   img {
@@ -118,5 +120,36 @@ const images = ref([
     height: 100%;
     object-fit: contain;
   }
+
+  @media (max-width: 768px) {
+    padding: 40px 0px;
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .image-container {
+      width: 120px;
+      height: 120px;
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 0px;
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+    }
+  }
 }
 </style>
+

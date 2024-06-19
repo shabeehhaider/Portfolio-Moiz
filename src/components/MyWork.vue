@@ -324,7 +324,7 @@ const closeIframe = () => {
 <style lang="scss" scoped>
 .work {
   background: #17241e;
-  padding: 200px 0px;
+  padding: 100px 0; /* Adjust padding for smaller screens */
   position: relative;
   margin-top: -20px;
   border-top-left-radius: 20px;
@@ -336,6 +336,7 @@ const closeIframe = () => {
     font-weight: 600;
     font-family: "Poppins", sans-serif;
     text-align: center;
+    margin-bottom: 30px; /* Add margin for spacing */
   }
 
   .btns {
@@ -348,8 +349,8 @@ const closeIframe = () => {
       background: #28e98c;
       color: #fff;
       border: 0;
-      font-size: 18px;
-      padding: 10px 20px;
+      font-size: 16px; /* Adjust font size for smaller screens */
+      padding: 8px 16px; /* Adjust padding for smaller screens */
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s;
@@ -364,8 +365,8 @@ const closeIframe = () => {
     background: transparent;
     color: #fff;
     border: 0;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 16px; /* Adjust font size for smaller screens */
+    padding: 8px; /* Adjust padding for smaller screens */
     cursor: pointer;
 
     &.active {
@@ -379,13 +380,12 @@ const closeIframe = () => {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 30px; /* Adjust margin for smaller screens */
 
     .work-link {
       border-radius: 20px;
       overflow: hidden;
-      height: 200px;
-
+      height: 150px; /* Adjust height for smaller screens */
 
       img {
         width: 100%;
@@ -410,8 +410,8 @@ const closeIframe = () => {
 
   .iframe-container {
     position: relative;
-    width: 80%;
-    height: 80%;
+    width: 90%; /* Adjust width for smaller screens */
+    height: 90%; /* Adjust height for smaller screens */
 
     iframe {
       width: 100%;
@@ -419,4 +419,72 @@ const closeIframe = () => {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .work {
+    padding: 80px 0; /* Example: Adjust padding for smaller devices */
+    .btns {
+      gap: 5px;
+      flex-wrap: wrap;
+      button{
+        font-size: 14px;
+        padding: 4px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 20px; /* Example: Reduce font size for smaller devices */
+  }
+
+  .work-images {
+    .work-link {
+      height: 120px; /* Example: Adjust image height for smaller devices */
+    }
+  }
+
+  .iframe-modal {
+    .iframe-container {
+      width: 100%; /* Example: Adjust modal width for smaller devices */
+      height: 30%; /* Example: Adjust modal height for smaller devices */
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .work {
+    padding: 60px 0; /* Further adjustments for smaller screens */
+  }
+
+  h1 {
+    font-size: 18px; /* Further reduce font size for smaller screens */
+  }
+
+  .btns {
+      flex-wrap: wrap;
+      gap: 5px;
+      button{
+        font-size: 14px;
+        padding: 4px;
+        gap: 4px;
+      }
+    }
+
+  
+
+  .work-images {
+    gap: 10px; /* Adjust gap between images for smaller screens */
+    .work-link {
+      height: 100px; /* Further adjust image height for smaller screens */
+    }
+  }
+
+  .iframe-modal {
+    .iframe-container {
+      width: 100%; /* Further adjust modal width for smaller screens */
+      height: 30%; /* Further adjust modal height for smaller screens */
+    }
+  }
+}
 </style>
+

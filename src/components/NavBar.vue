@@ -6,10 +6,10 @@
           <img src="../assets/logorm.png" alt="logo"/>
         </a>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </button> -->
+      <div>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" target="_blank" href="mailto:moix.xaidi@gmail.com">
@@ -109,20 +109,36 @@ onUnmounted(() => {
   display: flex !important;
   align-items: center !important;
   background: transparent;
-  justify-content: center !important;
+  justify-content: space-between !important;
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9;
+  padding: 0 20px;
 
   .logo-img {
-    width: 230px;
-    height: 230px;
+    width: 120px;
+    height: 120px;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+    .navbar-toggler-icon {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
+
+  .collapse {
+    &.navbar-collapse {
+      flex-grow: 0;
     }
   }
 
@@ -178,7 +194,7 @@ onUnmounted(() => {
   font-size: 32px;
 }
 
-i.sidebar-item{
+i.sidebar-item {
   position: absolute;
   top: 0;
   right: 0;
@@ -186,7 +202,125 @@ i.sidebar-item{
   cursor: pointer;
 }
 
+@media (max-width: 1024px) {
+  .top-bar {
+    height: 120px;
+
+    .logo-img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .nav-link i {
+      font-size: 24px;
+    }
+
+    .nav-link img {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+  ul.navbar-nav.mb-2.mb-lg-0{
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    height: 100px;
+    padding: 0 10px;
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .nav-link i {
+      font-size: 20px;
+    }
+
+    .nav-link img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    .navbar-toggler {
+      .navbar-toggler-icon {
+        font-size: 1.25rem;
+      }
+    }
+
+    .sidebar-menu {
+      width: 250px;
+      padding: 80px 20px;
+    }
+
+    .sidebar-item {
+      font-size: 28px;
+    }
+
+    i.sidebar-item {
+      font-size: 28px;
+    }
+  }
+  ul.navbar-nav.mb-2.mb-lg-0{
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    height: 80px;
+    padding: 0 5px;
+
+    .logo-img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .nav-link i {
+      font-size: 18px;
+    }
+
+    .nav-link img {
+      width: 18px !important;
+      height: 18px !important;
+    }
+
+    .navbar-toggler {
+      .navbar-toggler-icon {
+        font-size: 1rem;
+      }
+    }
+
+    .sidebar-menu {
+      width: 200px;
+      padding: 60px 20px;
+    }
+
+    .sidebar-item {
+      font-size: 24px;
+    }
+
+    i.sidebar-item {
+      font-size: 24px;
+    }
+  }
+  ul.navbar-nav.mb-2.mb-lg-0{
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 </style>
+
 
 
 

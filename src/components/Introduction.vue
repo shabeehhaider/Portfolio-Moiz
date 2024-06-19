@@ -24,31 +24,62 @@
 <script setup>
 </script>
 <style scoped>
-.intro{
+.intro {
   padding: 60px;
   background: #0e0e0e;
   margin: 90px auto;
   border-radius: 20px;
   text-align: center;
   width: 70%;
+
+  @media (max-width: 1024px) {
+    padding: 50px;
+    width: 80%;
+    margin: 70px auto;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px;
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px;
+    width: 95%;
+    margin: 30px auto;
+  }
 }
 
-h1{
+h1 {
   font-size: 28px;
-  font-weight: bold; 
-  font-family: "Poppins", sans-serif; 
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
   color: #fefefe;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 }
 
-p{
+p {
   font-size: 18px;
-  font-weight: 500; 
-  font-family: "Poppins", sans-serif; 
-  white-space: pre-line; 
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  white-space: pre-line;
   text-align: center;
   color: #fefefe;
 
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 }
-
-
 </style>

@@ -49,29 +49,30 @@ outcome</p>
 
 </script>
 <style lang="scss" scoped>
-.about{
+.about {
   background-color: #484747;
   position: relative;
   margin-top: -20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  .container{
+
+  .container {
     padding: 50px;
     text-align: center;
+
     .what-i-do {
-      // background: linear-gradient(90deg, rgba(40,233,140,1) 0%, rgba(12,133,75,1) 44%, rgba(173,233,40,1) 54%);
-      // -webkit-background-clip: text;
-      // background-clip: text;
-      color: #fefefe; 
+      color: #fefefe;
       font-size: 24px;
-      font-weight: 600; 
-      font-family: "Poppins", sans-serif; 
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
     }
-    h1.specializations{
+
+    h1.specializations {
       font-size: 90px;
       font-family: "Poppins", sans-serif;
       position: relative;
-      &::after{
+
+      &::after {
         content: '';
         position: absolute;
         left: 47%;
@@ -81,14 +82,16 @@ outcome</p>
         background-color: #fff;
       }
     }
-    div.boxes{
+
+    div.boxes {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       justify-content: flex-start;
       align-items: center;
       gap: 20px;
-      .box{
+
+      .box {
         width: 500px;
         height: 300px;
         background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
@@ -100,6 +103,7 @@ outcome</p>
         justify-content: center;
         align-items: center;
       }
+
       .box-hire {
         height: 300px;
         background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
@@ -112,11 +116,12 @@ outcome</p>
         align-items: center;
         position: relative;
         width: 300px;
-        h1{
+
+        h1 {
           font-family: "Poppins", sans-serif;
           text-transform: uppercase;
           font-size: 100px;
-          color: #28e98c ;
+          color: #28e98c;
           position: absolute;
           right: -170px;
           text-decoration: underline;
@@ -124,6 +129,101 @@ outcome</p>
       }
     }
   }
-}
 
+  @media (max-width: 1024px) {
+    .container {
+      padding: 40px;
+
+      h1.specializations {
+        font-size: 70px;
+
+        &::after {
+          left: 45%;
+          width: 50px;
+        }
+      }
+
+      .boxes .box {
+        width: 45% !important;
+        height: auto !important;
+        padding: 30px !important;
+        h3{
+          font-size: 32px;
+        }
+      }
+
+      .boxes .box-hire {
+        width: 45% !important;
+        h1 {
+          font-size: 80px !important;
+          right: -140px !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 30px;
+
+      h1.specializations {
+        font-size: 50px;
+
+        &::after {
+          left: 44%;
+          width: 40px;
+        }
+      }
+
+      .boxes .box,
+      .boxes .box-hire {
+        width: 100% !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+        h3{
+          font-size: 32px;
+        }
+      }
+
+      .boxes .box-hire h1 {
+        font-size: 60px !important;
+        right: 0 !important;
+        position:  relative !important;
+
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+
+      h1.specializations {
+        font-size: 35px;
+
+        &::after {
+          left: 43%;
+          width: 30px;
+        }
+      }
+
+      .boxes .box,
+      .boxes .box-hire {
+        width: 100% !important;
+        padding: 15px !important;
+        margin-bottom: 15px;
+        h3{
+          font-size: 32px;
+        }
+      }
+
+      .boxes .box-hire h1 {
+        font-size: 40px !important;
+        text-decoration: none !important;
+        position:  relative !important;
+        right: 0 !important;
+      }
+    }
+  }
+}
 </style>

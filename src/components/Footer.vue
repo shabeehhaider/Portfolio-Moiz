@@ -1,5 +1,5 @@
 <template>
-  <div class="social-links d-flex">
+  <div class="social-links">
     <div>
       <a target="_blank" href="mailto:moix.xaidi@gmail.com">
         <q-icon name="mail" />
@@ -45,11 +45,12 @@
         <img src="../assets/socials/instagram.svg" width="28px" height="28px" />
       </a>
     </div>
-    
   </div>
 </template>
+
 <script setup>
 </script>
+
 <style scoped lang="scss">
 .social-links {
   padding: 50px;
@@ -58,9 +59,42 @@
   justify-content: center;
   gap: 20px;
   border-top: 1px solid #ffffff;
-  i{
-    font-size: 28px;
+  flex-wrap: wrap; /* Allow items to wrap */
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img, i {
+    width: 28px;
+    height: 28px;
     color: #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    padding: 30px; /* Adjust padding for smaller screens */
+    gap: 15px; /* Adjust gap for smaller screens */
+    
+    img, i {
+      width: 24px; /* Adjust icon size for smaller screens */
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    padding: 20px; /* Adjust padding for smaller screens */
+    gap: 10px; /* Adjust gap for smaller screens */
+    
+    img, i {
+      width: 20px; /* Adjust icon size for smaller screens */
+      height: 20px;
+    }
   }
 }
 </style>

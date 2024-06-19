@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <section class="hero">
     <div class="d-flex">
@@ -76,6 +73,9 @@
   </section>
 </template>
 
+<script setup>
+</script>
+
 <style lang="scss" scoped>
 .hero {
   background: #484747;
@@ -129,7 +129,7 @@
 }
 
 .behind-the-scene {
-    padding: 20px;
+  padding: 20px;
   h1 {
     color: #ffffff;
     font-family: "Poppins", sans-serif;
@@ -142,20 +142,93 @@
   }
 
   .masonry {
-    -moz-column-count:3;
+    -moz-column-count: 3;
     -moz-column-gap: 10px;
-    -moz-column-width: 30%;
-    -webkit-column-count:3;
+    -webkit-column-count: 3;
     -webkit-column-gap: 10px;
-    -webkit-column-width: 30%;
     column-count: 3;
     column-gap: 10px;
-    column-width: 30%;
 
     img {
       width: 100%;
       display: block;
-      margin: 10px;
+      margin: 10px 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    div.d-flex{
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .profile-img,
+    .hero-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-content {
+      h1,
+      h3,
+      p {
+        padding-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .behind-the-scene {
+    .masonry {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px;
+
+    div.d-flex{
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .profile-img {
+      height: auto;
+      .profile {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .hero-content {
+      h1 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .behind-the-scene {
+    .masonry {
+      -moz-column-count: 1;
+      -webkit-column-count: 1;
+      column-count: 1;
     }
   }
 }
