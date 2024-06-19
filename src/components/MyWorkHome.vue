@@ -30,7 +30,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const activeCategory = ref('all');
+const activeCategory = ref('all'); 
 
 const allVideos = ref([
   { image: '/src/assets/my-work/kia.png', video: 'https://player.vimeo.com/video/954996067' },
