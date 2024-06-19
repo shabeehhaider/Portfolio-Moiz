@@ -67,9 +67,14 @@
     justify-content: center;
   }
 
-  img, i {
+  img{
     width: 28px;
     height: 28px;
+    color: #ffffff;
+  }
+
+  i{
+    font-size: 28px;
     color: #ffffff;
   }
 }
