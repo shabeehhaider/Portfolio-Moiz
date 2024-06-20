@@ -44,244 +44,351 @@
 
 <script setup>
 import { ref } from 'vue';
-
-// Initialize active category to 'all'
 const activeCategory = ref('all');
+import kiaImage from '/src/assets/my-work/kia.png';
+import peugeotImage from '/src/assets/my-work/peugeot.jpeg';
+import netflixImage from '/src/assets/my-work/netflix.jpeg';
+import revoImage from '/src/assets/my-work/revo.jpeg';
+import toyotaYarisEntertainmentImage from '/src/assets/my-work/toyota-yaris-entertainment.jpeg';
+import yarisImage from '/src/assets/my-work/yaris.jpeg';
+import rawalpindiImage from '/src/assets/my-work/rawalpindi.png';
+import mobilySequence1Image from '/src/assets/my-work/mobily-sequence-1.png';
+import mobilySequence2Image from '/src/assets/my-work/mobily-sequence-2.png';
+import mobilySequence3Image from '/src/assets/my-work/mobily-sequence-3.png';
+import mobilySequence4Image from '/src/assets/my-work/mobily-sequence-4.png';
+import toyotaYarisFuelEfficientImage from '/src/assets/my-work/toyota-yaris-is-fuel-efficient.jpeg';
+import customerExperienceAtHyundaiImage from '/src/assets/my-work/customer-experience-at-hyundai.jpeg';
+import hyundaiAfterSalesExperienceCustomerStoriesImage from '/src/assets/my-work/hyundai-after-sales-experience-customer-stories.jpeg';
+import hyundaiCentralAftersalesImage from '/src/assets/my-work/hyundai-central-aftersales.jpeg';
+import MG1Image from '/src/assets/my-work/MG.jpeg';
+import MG2Image from '/src/assets/my-work/MG.jpeg';
+import mgAnthemImage from '/src/assets/my-work/mg-anthem.jpeg';
+import KIAPowerToSurpriseImage from '/src/assets/my-work/KIA-power-to-surprise.jpeg';
+import KIAMotorsImage from '/src/assets/my-work/KIA-motors.jpeg';
+import samsungZFoldImage from '/src/assets/my-work/samsung-Z-fold.jpeg';
+import samsungS24Image from '/src/assets/my-work/samsungS24.jpeg';
+import spriteApniPyasImage from '/src/assets/my-work/sprite-apni-pyaas.jpeg';
+import easyPaisaFilm4Of7Image from '/src/assets/my-work/easy-paisa-film4-of-7.jpeg';
+import easyPaisaFilm3Of7Image from '/src/assets/my-work/easy-paisa-film3-of-7.jpeg';
+import KnorrFuzonImage from '/src/assets/my-work/knorr-fuzon.jpeg';
+import spriteTrafficImage from '/src/assets/my-work/sprite-traffic.jpeg';
+import PSOQuaidDayImage from '/src/assets/my-work/PSO-quaid-day.jpeg';
+import NestleMilkpakRamzanImage from '/src/assets/my-work/nestle-milkpak-ramzan.jpeg';
+import NestleMilkpakImage from '/src/assets/my-work/nestle-milkpak.jpeg';
+import UfoneDataBohhaaatHaiImage from '/src/assets/my-work/ufone-data-bohhaaat-hai.jpeg';
+import UfoneUpaisaFaidaBohhaaatHaiImage from '/src/assets/my-work/ufone-upaisa-faida-bohhaaat-hai.jpeg';
+import zindagiFinancialImage from '/src/assets/my-work/zindagi-financial.jpeg';
+import zameenDotComImage from '/src/assets/my-work/zameen-dot-com.jpeg';
+import xcellMobileImage from '/src/assets/my-work/xcell-mobile.jpeg';
+import tuxTakeImage from '/src/assets/my-work/tux-take.jpeg';
+import toyotaCorollaImage from '/src/assets/my-work/toyota-corolla.jpeg';
+import telenorEasyPaisaImage from '/src/assets/my-work/telenor-easy-paisa.jpeg';
+import telenorEasyPaisa0Image from '/src/assets/my-work/telenor-easy-paisa0.jpeg';
+import telenor4GshaadiImage from '/src/assets/my-work/telenor-4Gshaadi.jpeg';
+import telenor4GcafeImage from '/src/assets/my-work/telenor-4Gcafe.jpeg';
+import teefaInTroubleTrailerImage from '/src/assets/my-work/teefa-in-trouble-trailer.jpeg';
+import teefaTroubleTeaserImage from '/src/assets/my-work/teefa-trouble-teaser.jpeg';
+import tapalDanedar0Image from '/src/assets/my-work/tapal-danedar0.jpeg';
+import tangGirlImage from '/src/assets/my-work/tang-girl.jpeg';
+import tangBoyImage from '/src/assets/my-work/tang-boy.jpeg';
+import suzukiAltoImage from '/src/assets/my-work/suzuki-alto.jpeg';
+import surfExcelCricketImage from '/src/assets/my-work/surf-excel-cricket.jpeg';
+import spriteWoooSahhhImage from '/src/assets/my-work/sprite-wooo-sahhh.jpeg';
+import spriteWoooSahhh3Image from '/src/assets/my-work/sprite–wooo-sahhh-3.jpeg';
+import spriteWoooSahhh1Image from '/src/assets/my-work/sprite–wooo-sahhh-1.jpeg';
+import spriteWoooSahhh2Image from '/src/assets/my-work/sprite–wooo-sahhh-2.jpeg';
+import spriteRamadanImage from '/src/assets/my-work/sprite-ramadan.jpeg';
+import spriteKarahiImage from '/src/assets/my-work/sprite-karahi.jpeg';
+import spriteApniPyasKoSpriteKrImage from '/src/assets/my-work/sprite-apni-pyas-ko-sprite-kr.jpeg';
+import sooperHameshaWalaPyarImage from '/src/assets/my-work/sooper-hamesha-wala-pyar.jpeg';
+import shoopTrustTouMustHaiImage from '/src/assets/my-work/shoop-trust-tou-must-hai.jpeg';
+import shoopImprovedFlavorsImage from '/src/assets/my-work/shoop-improved-flavors.jpeg';
+import shoopChotooPackImage from '/src/assets/my-work/shoop-chotoo-pack.jpeg';
+import safeguardSoapImage from '/src/assets/my-work/safeguard-soap.jpeg';
+import PTCLTrulyUnlimitedImage from '/src/assets/my-work/PTCL-truly-unlimited.jpeg';
+import PTCLFlashFiberImage from '/src/assets/my-work/PTCL-flash-fiber.jpeg';
+import pelWeddingJackpotImage from '/src/assets/my-work/pel-wedding-jackpot.jpeg';
+import PantherTyresKing56Image from '/src/assets/my-work/panther-tyres-king56.jpeg';
+import nationalFoodsSisterImage from '/src/assets/my-work/national-foods-sister.jpeg';
+import nationalFoodsOfficeImage from '/src/assets/my-work/national-foods-office.jpeg';
+import nationalFoodsKetchup1Image from '/src/assets/my-work/national-foods-ketchup.jpeg';
+import nationalFoodsKetchup2Image from '/src/assets/my-work/national-foods-ketchup.jpeg';
+import mcdonaldsYehSuchHaiImage from '/src/assets/my-work/mcdonalds-yeh-such-hai.jpeg';
+import maxLemonMaxBarImage from '/src/assets/my-work/max-lemon-max-bar.jpeg';
+import lifebuoyNeemAurHaldiImage from '/src/assets/my-work/lifebuoy-neem-aur-haldi.jpeg';
+import lemonMaxLongBarImage from '/src/assets/my-work/lemon-max-long-bar.jpeg';
+import lemonMaxKarahiImage from '/src/assets/my-work/lemon-max-karahi.jpeg';
+import laysUniversityImage from '/src/assets/my-work/lays-university.jpeg';
+import laysSmileImage from '/src/assets/my-work/lays-smile.jpeg';
+import laysFriendsImage from '/src/assets/my-work/lays-friends.jpeg';
+import kiaStonicPlayItYoung0Image from '/src/assets/my-work/kia-stonic-play-it-young0.jpeg';
+import kiaStonicPlayItYoungImage from '/src/assets/my-work/kia-stonic-play-it-young.jpeg';
+import kiaPicantoImage from '/src/assets/my-work/kia-picanto.jpeg';
+import kashmirOilHeritageImage from '/src/assets/my-work/kashmir-oil-heritage.jpeg';
+import kashmirOilGuestsImage from '/src/assets/my-work/kashmir-oil-guests.jpeg';
+import kAndNsParchamImage from '/src/assets/my-work/kAndNs-parcham.jpeg';
+import jazzCashPaymentGateway0Image from '/src/assets/my-work/jazz-cash-payment-gateway0.jpeg';
+import jazzCashPaymentGatewayImage from '/src/assets/my-work/jazz-cash-payment-gateway.jpeg';
+import jazzCashOnlinePaymentsImage from '/src/assets/my-work/jazz-cash-online-payments.jpeg';
+import jazzCashMoneyTransferImage from '/src/assets/my-work/jazz-cash-money-transfer.jpeg';
+import jazzCashDebitCardImage from '/src/assets/my-work/jazz-cash-debit-card.jpeg';
+import inovativeButterCrunchImage from '/src/assets/my-work/inovative-butter-crunch.jpeg';
+import hilalCupKakeSuperhero1Image from '/src/assets/my-work/hilal-cup-kake-superhero.jpeg';
+import hilalCupKakeSuperhero2Image from '/src/assets/my-work/hilal-cup-kake-superhero.jpeg';
+import hilalCupKakeSuperhero3Image from '/src/assets/my-work/hilal-cup-kake-superhero.jpeg';
+import glucoJuniorsImage from '/src/assets/my-work/gluco-juniors.jpeg';
+import foodPandaBoysImage from '/src/assets/my-work/food-panda-boys.jpeg';
+import embraceWomanhoodImage from '/src/assets/my-work/embrace-womanhood.jpeg';
+import ebmTempleRunImage from '/src/assets/my-work/ebm-temple-run.jpeg';
+import easyPaisaPinChorImage from '/src/assets/my-work/easy-paisa-pin-chor.jpeg';
+import duluxICIMileageImage from '/src/assets/my-work/dulux-ICI-mileage.jpeg';
+import diamondSupremeFoamGuaranteeImage from '/src/assets/my-work/diamond-supreme-foam-guarantee.jpeg';
+import cocaColaHumAikHainImage from '/src/assets/my-work/coca-cola-hum-aik-hain.jpeg';
+import candylandNovellaImage from '/src/assets/my-work/candyland-novella.jpeg';
+import cadburyMoroImage from '/src/assets/my-work/cadbury-moro.jpeg';
+import cadburyDairyMilkImage from '/src/assets/my-work/cadbury-dairy-milk.jpeg';
+import bonusZiadaImage from '/src/assets/my-work/bonus-ziada.jpeg';
+import bataSurprisinglyBataImage from '/src/assets/my-work/bata-surprisingly-bata.jpeg';
+import bankAlfalahOrbitsImage from '/src/assets/my-work/bank-alfalah-orbits.jpeg';
+import shehzadRoySongBalochistanTadpolefilmsImage from '/src/assets/my-work/shehzad-roy-song-balochistan-tadpolefilms.jpeg';
 
-// Define the array of image paths
-// Define the array of videos with image paths and video links
+
+
+
 const allVideos = ref([
-  { image: '/src/assets/my-work/kia.png', video: 'https://player.vimeo.com/video/954996067' },
-  { image: '/src/assets/my-work/peugeot.jpeg', video: 'https://player.vimeo.com/video/954995426' },
-  { image: '/src/assets/my-work/netflix.jpeg', video: 'https://player.vimeo.com/video/954994541' },
-  { image: '/src/assets/my-work/revo.jpeg', video: 'https://player.vimeo.com/video/954992368' },
-  { image: '/src/assets/my-work/toyota-yaris-entertainment.jpeg', video: 'https://player.vimeo.com/video/954986732' },
-  { image: '/src/assets/my-work/yaris.jpeg', video: 'https://player.vimeo.com/video/954985999' },
-  { image: '/src/assets/my-work/rawalpindi.png', video: 'https://www.youtube.com/embed/cTul7pWWNXM?si=GhOT7Dz_vRjTkn3g' },
-  { image: '/src/assets/my-work/mobily-sequence-1.png', video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
-  { image: '/src/assets/my-work/mobily-sequence-2.png', video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
-  { image: '/src/assets/my-work/mobily-sequence-3.png', video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
-  { image: '/src/assets/my-work/mobily-sequence-4.png', video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
-  { image: '/src/assets/my-work/toyota-yaris-is-fuel-efficient.jpeg', video: 'https://player.vimeo.com/video/954983038' },
-  { image: '/src/assets/my-work/customer-experience-at-hyundai.jpeg', video: 'https://player.vimeo.com/video/954981783' },
-  { image: '/src/assets/my-work/hyundai-after-sales-experience-customer-stories.jpeg', video: 'https://player.vimeo.com/video/954980403' },
-  { image: '/src/assets/my-work/hyundai-central-aftersales.jpeg', video: 'https://player.vimeo.com/video/954979807' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954977536' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954976224' },
-  { image: '/src/assets/my-work/mg-anthem.jpeg', video: 'https://player.vimeo.com/video/954972354' },
-  { image: '/src/assets/my-work/KIA-power-to-surprise.jpeg', video: 'https://player.vimeo.com/video/954970987' },
-  { image: '/src/assets/my-work/KIA-motors.jpeg', video: 'https://player.vimeo.com/video/954967139' },
-  { image: '/src/assets/my-work/samsung-Z-fold.jpeg', video: 'https://player.vimeo.com/video/954961656' },
-  { image: '/src/assets/my-work/samsungS24.jpeg', video: 'https://player.vimeo.com/video/954959656' },
-  { image: '/src/assets/my-work/sprite-apni-pyaas.jpeg', video: 'https://player.vimeo.com/video/954958154' },
-  { image: '/src/assets/my-work/jab-sab-kuch-easy-paisa-se-hojaye-toh-karo-kuchbhi.jpeg', video: 'https://player.vimeo.com/video/954957138' },
-  { image: '/src/assets/my-work/easy-paisa-film4-of-7.jpeg', video: 'https://player.vimeo.com/video/954956461' },
-  { image: '/src/assets/my-work/easy-paisa-film3-of-7.jpeg', video: 'https://player.vimeo.com/video/954954489' },
-  { image: '/src/assets/my-work/Knorr - Fuzon.jpeg', video: 'https://player.vimeo.com/video/954389710' },
-  { image: '/src/assets/my-work/Sprite - Traffic.jpeg', video: 'https://player.vimeo.com/video/954388970' },
-  { image: '/src/assets/my-work/PSO - Quaid Day.jpeg', video: 'https://player.vimeo.com/video/954386031' },
-  { image: '/src/assets/my-work/Nestle - Milkpak Ramzan.jpeg', video: 'https://player.vimeo.com/video/954383015' },
-  { image: '/src/assets/my-work/Nestle - Milkpak.jpeg', video: 'https://player.vimeo.com/video/954382012' },
-  { image: '/src/assets/my-work/Ufone - Data Bohhaaat Hai.jpeg', video: 'https://player.vimeo.com/video/954377608' },
-  { image: '/src/assets/my-work/Ufone - Upaisa Faida Bohhaaat Hai.jpeg', video: 'https://player.vimeo.com/video/954376971' },
-  { image: '/src/assets/my-work/zindagi-financial.jpeg', video: 'https://player.vimeo.com/video/952830327' },
-  { image: '/src/assets/my-work/Zameen.com.jpeg', video: 'https://player.vimeo.com/video/952830229' },
-  { image: '/src/assets/my-work/xcell-mobile.jpeg', video: 'https://player.vimeo.com/video/952830127' },
-  { image: '/src/assets/my-work/tux-take.jpeg', video: 'https://player.vimeo.com/video/952830071' },
-  { image: '/src/assets/my-work/toyota-corolla.jpeg', video: 'https://player.vimeo.com/video/952830024' },
-  { image: '/src/assets/my-work/telenor-easy-paisa.jpeg', video: 'https://player.vimeo.com/video/952829983' },
-  { image: '/src/assets/my-work/telenor-easy-paisa-0.jpeg', video: 'https://player.vimeo.com/video/952829929' },
-  { image: '/src/assets/my-work/telenor-easy-paisa0.jpeg', video: 'https://player.vimeo.com/video/952829900' },
-  { image: '/src/assets/my-work/telenor-4Gshaadi.jpeg', video: 'https://player.vimeo.com/video/952829862' },
-  { image: '/src/assets/my-work/telenor-4Gcafe.jpeg', video: 'https://player.vimeo.com/video/952829814' },
-  { image: '/src/assets/my-work/teefa-in-trouble-trailer.jpeg', video: 'https://player.vimeo.com/video/952829718' },
-  { image: '/src/assets/my-work/teefa-trouble-teaser.jpeg', video: 'https://player.vimeo.com/video/952829678' },
-  { image: '/src/assets/my-work/tapal-danedar-0.jpeg', video: 'https://player.vimeo.com/video/952829530' },
-  { image: '/src/assets/my-work/tang-girl.jpeg', video: 'https://player.vimeo.com/video/952829493' },
-  { image: '/src/assets/my-work/tang-boy.jpeg', video: 'https://player.vimeo.com/video/952829473' },
-  { image: '/src/assets/my-work/suzuki-alto.jpeg', video: 'https://player.vimeo.com/video/952829422' },
-  { image: '/src/assets/my-work/surf-excel-cricket.jpeg', video: 'https://player.vimeo.com/video/952829380' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh.jpeg', video: 'https://player.vimeo.com/video/952829081' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-3.jpeg', video: 'https://player.vimeo.com/video/952829065' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-1.jpeg', video: 'https://player.vimeo.com/video/952829033' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-2.jpeg', video: 'https://player.vimeo.com/video/952829011' },
-  { image: '/src/assets/my-work/sprite-ramadan.jpeg', video: 'https://player.vimeo.com/video/952828519' },
-  { image: '/src/assets/my-work/sprite-karahi.jpeg', video: 'https://player.vimeo.com/video/952828443' },
-  { image: '/src/assets/my-work/sprite-apni-pyas-ko-sprite-kr.jpeg', video: 'https://player.vimeo.com/video/952828399' },
-  { image: '/src/assets/my-work/sooper-hamesha-wala-pyar.jpeg', video: 'https://player.vimeo.com/video/952828315' },
-  { image: '/src/assets/my-work/shoop-trust-tou-must-hai.jpeg', video: 'https://player.vimeo.com/video/952828134' },
-  { image: '/src/assets/my-work/shoop-improved-flavors.jpeg', video: 'https://player.vimeo.com/video/952828096' },
-  { image: '/src/assets/my-work/shoop-chotoo-pack.jpeg', video: 'https://player.vimeo.com/video/952828057' },
-  { image: '/src/assets/my-work/safeguard-soap.jpeg', video: 'https://player.vimeo.com/video/952828022' },
-  { image: '/src/assets/my-work/PTCL-truly-unlimited.jpeg', video: 'https://player.vimeo.com/video/952827950' },
-  { image: '/src/assets/my-work/PTCL-flash-fiber.jpeg', video: 'https://player.vimeo.com/video/952827905' },
-  { image: '/src/assets/my-work/pel-wedding-jackpot.jpeg', video: 'https://player.vimeo.com/video/952827821' },
-  { image: '/src/assets/my-work/Panther Tyres - King 56.jpeg', video: 'https://player.vimeo.com/video/952827765' },
-  { image: '/src/assets/my-work/National Foods - Sister.jpeg', video: 'https://player.vimeo.com/video/952827523' },
-  { image: '/src/assets/my-work/National Foods - Office.jpeg', video: 'https://player.vimeo.com/video/952827433' },
-  { image: '/src/assets/my-work/National Foods - Ketchup.jpeg', video: 'https://player.vimeo.com/video/952827341' },
-  { image: '/src/assets/my-work/National Foods - Ketchup.jpeg', video: 'https://player.vimeo.com/video/952827290' },
-  { image: '/src/assets/my-work/McDonald’s - Yeh Such Hai.jpeg', video: 'https://player.vimeo.com/video/952827227' },
-  { image: '/src/assets/my-work/Max - Lemon Max Bar.jpeg', video: 'https://player.vimeo.com/video/952827197' },
-  { image: '/src/assets/my-work/Lifebuoy - Neem aur Haldi.jpeg', video: 'https://player.vimeo.com/video/952827178' },
-  { image: '/src/assets/my-work/Lemon Max - Long Bar.jpeg', video: 'https://player.vimeo.com/video/952826192' },
-  { image: '/src/assets/my-work/Lemon Max - Karahi.jpeg', video: 'https://player.vimeo.com/video/952826047' },
-  { image: '/src/assets/my-work/Lays University.jpeg', video: 'https://player.vimeo.com/video/952825999' },
-  { image: '/src/assets/my-work/Lays - Smile.jpeg', video: 'https://player.vimeo.com/video/952825837' },
-  { image: '/src/assets/my-work/Lays - Friends.jpeg', video: 'https://player.vimeo.com/video/952825790' },
-  { image: '/src/assets/my-work/Kia - Stonic Play It Young(0).jpeg', video: 'https://player.vimeo.com/video/952825710' },
-  { image: '/src/assets/my-work/Kia - Stonic Play It Young.jpeg', video: 'https://player.vimeo.com/video/952825400' },
-  { image: '/src/assets/my-work/kia-picanto.jpeg', video: 'https://player.vimeo.com/video/952825358' },
-  { image: '/src/assets/my-work/Kashmir Oil - Heritage.jpeg', video: 'https://player.vimeo.com/video/952825285' },
-  { image: '/src/assets/my-work/Kashmir Oil - Guests.jpeg', video: 'https://player.vimeo.com/video/952825231' },
-  { image: '/src/assets/my-work/K&Ns-Parcham.jpeg', video: 'https://player.vimeo.com/video/952825103' },
-  { image: '/src/assets/my-work/Jazz Cash - Payment Gateway(0).jpeg', video: 'https://player.vimeo.com/video/952824893' },
-  { image: '/src/assets/my-work/Jazz Cash - Payment Gateway.jpeg', video: 'https://player.vimeo.com/video/952824873' },
-  { image: '/src/assets/my-work/Jazz Cash - Online Payments.jpeg', video: 'https://player.vimeo.com/video/952824848' },
-  { image: '/src/assets/my-work/Jazz Cash - Money Transfer.jpeg', video: 'https://player.vimeo.com/video/952824797' },
-  { image: '/src/assets/my-work/Jazz Cash - Debit Card.jpeg', video: 'https://player.vimeo.com/video/952824687' },
-  { image: '/src/assets/my-work/Inovative - Butter Crunch.jpeg', video: 'https://player.vimeo.com/video/952824484' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824385' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824356' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824308' },
-  { image: '/src/assets/my-work/Gluco - Juniors.jpeg', video: 'https://player.vimeo.com/video/952824280' },
-  { image: '/src/assets/my-work/Food Panda Boys.jpeg', video: 'https://player.vimeo.com/video/952824252' },
-  { image: '/src/assets/my-work/Embrace - Womanhood.jpeg', video: 'https://player.vimeo.com/video/952824218' },
-  { image: '/src/assets/my-work/EBM - Temple Run.jpeg', video: 'https://player.vimeo.com/video/952824005' },
-  { image: '/src/assets/my-work/Easy Paisa - Pin Chor.jpeg', video: 'https://player.vimeo.com/video/952823956' },
-  { image: '/src/assets/my-work/Dulux ICI - Mileage.jpeg', video: 'https://player.vimeo.com/video/952820223' },
-  { image: '/src/assets/my-work/Diamond Supreme Foam - Guarantee.jpeg', video: 'https://player.vimeo.com/video/952820022' },
-  { image: '/src/assets/my-work/Coca Cola - Hum Aik Hain.jpeg', video: 'https://player.vimeo.com/video/952819684' },
-  { image: '/src/assets/my-work/Candyland - Novella.jpeg', video: 'https://player.vimeo.com/video/952819634' },
-  { image: '/src/assets/my-work/Cadbury - Moro.jpeg', video: 'https://player.vimeo.com/video/952819498' },
-  { image: '/src/assets/my-work/Cadbury - Dairy Milk.jpeg', video: 'https://player.vimeo.com/video/952819479' },
-  { image: '/src/assets/my-work/Bonus - Ziada.jpeg', video: 'https://player.vimeo.com/video/952819381' },
-  { image: '/src/assets/my-work/Bata - Surprisingly Bata.jpeg', video: 'https://player.vimeo.com/video/952819301' },
-  { image: '/src/assets/my-work/Bank Alfalah - Orbits.jpeg', video: 'https://player.vimeo.com/video/952819198' },
-  { image: '/src/assets/my-work/Shehzad Roy Song Balochistan tadpolefilms.jpeg', video: 'https://player.vimeo.com/video/952818362' },
-  
+  { image: kiaImage, video: 'https://player.vimeo.com/video/954996067' },
+  { image: peugeotImage, video: 'https://player.vimeo.com/video/954995426' },
+  { image: netflixImage, video: 'https://player.vimeo.com/video/954994541' },
+  { image: revoImage, video: 'https://player.vimeo.com/video/954992368' },
+  { image: toyotaYarisEntertainmentImage, video: 'https://player.vimeo.com/video/954986732' },
+  { image: yarisImage, video: 'https://player.vimeo.com/video/954985999' },
+  { image: rawalpindiImage, video: 'https://www.youtube.com/embed/cTul7pWWNXM?si=GhOT7Dz_vRjTkn3g' },
+  { image: mobilySequence1Image, video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
+  { image: mobilySequence2Image, video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
+  { image: mobilySequence3Image, video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
+  { image: mobilySequence4Image, video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
+  { image: toyotaYarisFuelEfficientImage, video: 'https://player.vimeo.com/video/954983038' },
+  { image: customerExperienceAtHyundaiImage, video: 'https://player.vimeo.com/video/954981783' },
+  { image: hyundaiAfterSalesExperienceCustomerStoriesImage, video: 'https://player.vimeo.com/video/954980403' },
+  { image: hyundaiCentralAftersalesImage, video: 'https://player.vimeo.com/video/954979807' },
+  { image: MG1Image, video: 'https://player.vimeo.com/video/954977536' },
+  { image: MG2Image, video: 'https://player.vimeo.com/video/954976224' },
+  { image: mgAnthemImage, video: 'https://player.vimeo.com/video/954972354' },
+  { image: KIAPowerToSurpriseImage, video: 'https://player.vimeo.com/video/954970987' },
+  { image: KIAMotorsImage, video: 'https://player.vimeo.com/video/954967139' },
+  { image: samsungZFoldImage, video: 'https://player.vimeo.com/video/954961656' },
+  { image: samsungS24Image, video: 'https://player.vimeo.com/video/954959656' },
+  { image: spriteApniPyasImage, video: 'https://player.vimeo.com/video/954958154' },
+  { image: easyPaisaFilm4Of7Image, video: 'https://player.vimeo.com/video/954956461' },
+  { image: easyPaisaFilm3Of7Image, video: 'https://player.vimeo.com/video/954954489' },
+  { image: KnorrFuzonImage, video: 'https://player.vimeo.com/video/954389710' },
+  { image: spriteTrafficImage, video: 'https://player.vimeo.com/video/954388970' },
+  { image: PSOQuaidDayImage, video: 'https://player.vimeo.com/video/954386031' },
+  { image: NestleMilkpakRamzanImage, video: 'https://player.vimeo.com/video/954383015' },
+  { image: NestleMilkpakImage, video: 'https://player.vimeo.com/video/954382012' },
+  { image: UfoneDataBohhaaatHaiImage, video: 'https://player.vimeo.com/video/954377608' },
+  { image: UfoneUpaisaFaidaBohhaaatHaiImage, video: 'https://player.vimeo.com/video/954376971' },
+  { image: zindagiFinancialImage, video: 'https://player.vimeo.com/video/952830327' },
+  { image: zameenDotComImage, video: 'https://player.vimeo.com/video/952830229' },
+  { image: xcellMobileImage, video: 'https://player.vimeo.com/video/952830127' },
+  { image: tuxTakeImage, video: 'https://player.vimeo.com/video/952830071' },
+  { image: toyotaCorollaImage, video: 'https://player.vimeo.com/video/952830024' },
+  { image: telenorEasyPaisaImage, video: 'https://player.vimeo.com/video/952829983' },
+  { image: telenorEasyPaisa0Image, video: 'https://player.vimeo.com/video/952829929' },
+  { image: telenorEasyPaisa0Image, video: 'https://player.vimeo.com/video/952829900' },
+  { image: telenor4GshaadiImage, video: 'https://player.vimeo.com/video/952829862' },
+  { image: telenor4GcafeImage, video: 'https://player.vimeo.com/video/952829814' },
+  { image: teefaInTroubleTrailerImage, video: 'https://player.vimeo.com/video/952829718' },
+  { image: teefaTroubleTeaserImage, video: 'https://player.vimeo.com/video/952829678' },
+  { image: tapalDanedar0Image, video: 'https://player.vimeo.com/video/952829530' },
+  { image: tangGirlImage, video: 'https://player.vimeo.com/video/952829493' },
+  { image: tangBoyImage, video: 'https://player.vimeo.com/video/952829473' },
+  { image: suzukiAltoImage, video: 'https://player.vimeo.com/video/952829422' },
+  { image: surfExcelCricketImage, video: 'https://player.vimeo.com/video/952829380' },
+  { image: spriteWoooSahhhImage, video: 'https://player.vimeo.com/video/952829081' },
+  { image: spriteWoooSahhh3Image, video: 'https://player.vimeo.com/video/952829065' },
+  { image: spriteWoooSahhh1Image, video: 'https://player.vimeo.com/video/952829033' },
+  { image: spriteWoooSahhh2Image, video: 'https://player.vimeo.com/video/952829011' },
+  { image: spriteRamadanImage, video: 'https://player.vimeo.com/video/952828519' },
+  { image: spriteKarahiImage, video: 'https://player.vimeo.com/video/952828443' },
+  { image: spriteApniPyasKoSpriteKrImage, video: 'https://player.vimeo.com/video/952828399' },
+  { image: sooperHameshaWalaPyarImage, video: 'https://player.vimeo.com/video/952828315' },
+  { image: shoopTrustTouMustHaiImage, video: 'https://player.vimeo.com/video/952828134' },
+  { image: shoopImprovedFlavorsImage, video: 'https://player.vimeo.com/video/952828096' },
+  { image: shoopChotooPackImage, video: 'https://player.vimeo.com/video/952828057' },
+  { image: safeguardSoapImage, video: 'https://player.vimeo.com/video/952828022' },
+  { image: PTCLTrulyUnlimitedImage, video: 'https://player.vimeo.com/video/952827950' },
+  { image: PTCLFlashFiberImage, video: 'https://player.vimeo.com/video/952827905' },
+  { image: pelWeddingJackpotImage, video: 'https://player.vimeo.com/video/952827821' },
+  { image: PantherTyresKing56Image, video: 'https://player.vimeo.com/video/952827765' },
+  { image: nationalFoodsSisterImage, video: 'https://player.vimeo.com/video/952827523' },
+  { image: nationalFoodsOfficeImage, video: 'https://player.vimeo.com/video/952827433' },
+  { image: nationalFoodsKetchup1Image, video: 'https://player.vimeo.com/video/952827341' },
+  { image: nationalFoodsKetchup2Image, video: 'https://player.vimeo.com/video/952827290' },
+  { image: mcdonaldsYehSuchHaiImage, video: 'https://player.vimeo.com/video/952827227' },
+  { image: maxLemonMaxBarImage, video: 'https://player.vimeo.com/video/952827197' },
+  { image: lifebuoyNeemAurHaldiImage, video: 'https://player.vimeo.com/video/952827178' },
+  { image: lemonMaxLongBarImage, video: 'https://player.vimeo.com/video/952826192' },
+  { image: lemonMaxKarahiImage, video: 'https://player.vimeo.com/video/952826047' },
+  { image: laysUniversityImage, video: 'https://player.vimeo.com/video/952825999' },
+  { image: laysSmileImage, video: 'https://player.vimeo.com/video/952825837' },
+  { image: laysFriendsImage, video: 'https://player.vimeo.com/video/952825790' },
+  { image: kiaStonicPlayItYoung0Image, video: 'https://player.vimeo.com/video/952825710' },
+  { image: kiaStonicPlayItYoungImage, video: 'https://player.vimeo.com/video/952825400' },
+  { image: kiaPicantoImage, video: 'https://player.vimeo.com/video/952825358' },
+  { image: kashmirOilHeritageImage, video: 'https://player.vimeo.com/video/952825285' },
+  { image: kashmirOilGuestsImage, video: 'https://player.vimeo.com/video/952825231' },
+  { image: kAndNsParchamImage, video: 'https://player.vimeo.com/video/952825103' },
+  { image: jazzCashPaymentGateway0Image, video: 'https://player.vimeo.com/video/952824893' },
+  { image: jazzCashPaymentGatewayImage, video: 'https://player.vimeo.com/video/952824873' },
+  { image: jazzCashOnlinePaymentsImage, video: 'https://player.vimeo.com/video/952824848' },
+  { image: jazzCashMoneyTransferImage, video: 'https://player.vimeo.com/video/952824797' },
+  { image: jazzCashDebitCardImage, video: 'https://player.vimeo.com/video/952824687' },
+  { image: inovativeButterCrunchImage, video: 'https://player.vimeo.com/video/952824484' },
+  { image: hilalCupKakeSuperhero1Image, video: 'https://player.vimeo.com/video/952824385' },
+  { image: hilalCupKakeSuperhero2Image, video: 'https://player.vimeo.com/video/952824356' },
+  { image: hilalCupKakeSuperhero3Image, video: 'https://player.vimeo.com/video/952824308' },
+  { image: glucoJuniorsImage, video: 'https://player.vimeo.com/video/952824280' },
+  { image: foodPandaBoysImage, video: 'https://player.vimeo.com/video/952824252' },
+  { image: embraceWomanhoodImage, video: 'https://player.vimeo.com/video/952824218' },
+  { image: ebmTempleRunImage, video: 'https://player.vimeo.com/video/952824005' },
+  { image: easyPaisaPinChorImage, video: 'https://player.vimeo.com/video/952823956' },
+  { image: duluxICIMileageImage, video: 'https://player.vimeo.com/video/952820223' },
+  { image: diamondSupremeFoamGuaranteeImage, video: 'https://player.vimeo.com/video/952820022' },
+  { image: cocaColaHumAikHainImage, video: 'https://player.vimeo.com/video/952819684' },
+  { image: candylandNovellaImage, video: 'https://player.vimeo.com/video/952819634' },
+  { image: cadburyMoroImage, video: 'https://player.vimeo.com/video/952819498' },
+  { image: cadburyDairyMilkImage, video: 'https://player.vimeo.com/video/952819479' },
+  { image: bonusZiadaImage, video: 'https://player.vimeo.com/video/952819381' },
+  { image: bataSurprisinglyBataImage, video: 'https://player.vimeo.com/video/952819301' },
+  { image: bankAlfalahOrbitsImage, video: 'https://player.vimeo.com/video/952819198' },
+  { image: shehzadRoySongBalochistanTadpolefilmsImage, video: 'https://player.vimeo.com/video/952818362' },
 ]);
 
 const commercialsVideos = ref([
-  { image: '/src/assets/my-work/mobily-sequence-1.png', video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
-  { image: '/src/assets/my-work/mobily-sequence-2.png', video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
-  { image: '/src/assets/my-work/mobily-sequence-3.png', video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
-  { image: '/src/assets/my-work/mobily-sequence-4.png', video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
-  { image: '/src/assets/my-work/kia.png', video: 'https://player.vimeo.com/video/954996067' },
-  { image: '/src/assets/my-work/peugeot.jpeg', video: 'https://player.vimeo.com/video/954995426' },
-  { image: '/src/assets/my-work/revo.jpeg', video: 'https://player.vimeo.com/video/954992368' },
-  { image: '/src/assets/my-work/toyota-yaris-entertainment.jpeg', video: 'https://player.vimeo.com/video/954986732' },
-  { image: '/src/assets/my-work/yaris.jpeg', video: 'https://player.vimeo.com/video/954985999' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954977536' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954976224' },
-  { image: '/src/assets/my-work/mg-anthem.jpeg', video: 'https://player.vimeo.com/video/954972354' },
-  { image: '/src/assets/my-work/KIA-power-to-surprise.jpeg', video: 'https://player.vimeo.com/video/954970987' },
-  { image: '/src/assets/my-work/KIA-motors.jpeg', video: 'https://player.vimeo.com/video/954967139' },
-  { image: '/src/assets/my-work/samsung-Z-fold.jpeg', video: 'https://player.vimeo.com/video/954961656' },
-  { image: '/src/assets/my-work/samsungS24.jpeg', video: 'https://player.vimeo.com/video/954959656' },
-  { image: '/src/assets/my-work/sprite-apni-pyaas.jpeg', video: 'https://player.vimeo.com/video/954958154' },
-  { image: '/src/assets/my-work/jab-sab-kuch-easy-paisa-se-hojaye-toh-karo-kuchbhi.jpeg', video: 'https://player.vimeo.com/video/954957138' },
-  { image: '/src/assets/my-work/easy-paisa-film4-of-7.jpeg', video: 'https://player.vimeo.com/video/954956461' },
-  { image: '/src/assets/my-work/easy-paisa-film3-of-7.jpeg', video: 'https://player.vimeo.com/video/954954489' },
-  { image: '/src/assets/my-work/Knorr - Fuzon.jpeg', video: 'https://player.vimeo.com/video/954389710' },
-  { image: '/src/assets/my-work/Sprite - Traffic.jpeg', video: 'https://player.vimeo.com/video/954388970' },
-  { image: '/src/assets/my-work/PSO - Quaid Day.jpeg', video: 'https://player.vimeo.com/video/954386031' },
-  { image: '/src/assets/my-work/Nestle - Milkpak Ramzan.jpeg', video: 'https://player.vimeo.com/video/954383015' },
-  { image: '/src/assets/my-work/Nestle - Milkpak.jpeg', video: 'https://player.vimeo.com/video/954382012' },
-  { image: '/src/assets/my-work/Ufone - Data Bohhaaat Hai.jpeg', video: 'https://player.vimeo.com/video/954377608' },
-  { image: '/src/assets/my-work/Ufone - Upaisa Faida Bohhaaat Hai.jpeg', video: 'https://player.vimeo.com/video/954376971' },
-  { image: '/src/assets/my-work/zindagi-financial.jpeg', video: 'https://player.vimeo.com/video/952830327' },
-  { image: '/src/assets/my-work/Zameen.com.jpeg', video: 'https://player.vimeo.com/video/952830229' },
-  { image: '/src/assets/my-work/xcell-mobile.jpeg', video: 'https://player.vimeo.com/video/952830127' },
-  { image: '/src/assets/my-work/tux-take.jpeg', video: 'https://player.vimeo.com/video/952830071' },
-  { image: '/src/assets/my-work/toyota-corolla.jpeg', video: 'https://player.vimeo.com/video/952830024' },
-  { image: '/src/assets/my-work/telenor-easy-paisa.jpeg', video: 'https://player.vimeo.com/video/952829983' },
-  { image: '/src/assets/my-work/telenor-easy-paisa-0.jpeg', video: 'https://player.vimeo.com/video/952829929' },
-  { image: '/src/assets/my-work/telenor-easy-paisa0.jpeg', video: 'https://player.vimeo.com/video/952829900' },
-  { image: '/src/assets/my-work/telenor-4Gshaadi.jpeg', video: 'https://player.vimeo.com/video/952829862' },
-  { image: '/src/assets/my-work/telenor-4Gcafe.jpeg', video: 'https://player.vimeo.com/video/952829814' },
-  { image: '/src/assets/my-work/tapal-danedar-0.jpeg', video: 'https://player.vimeo.com/video/952829530' },
-  { image: '/src/assets/my-work/tang-girl.jpeg', video: 'https://player.vimeo.com/video/952829493' },
-  { image: '/src/assets/my-work/tang-boy.jpeg', video: 'https://player.vimeo.com/video/952829473' },
-  { image: '/src/assets/my-work/suzuki-alto.jpeg', video: 'https://player.vimeo.com/video/952829422' },
-  { image: '/src/assets/my-work/surf-excel-cricket.jpeg', video: 'https://player.vimeo.com/video/952829380' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh.jpeg', video: 'https://player.vimeo.com/video/952829081' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-3.jpeg', video: 'https://player.vimeo.com/video/952829065' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-1.jpeg', video: 'https://player.vimeo.com/video/952829033' },
-  { image: '/src/assets/my-work/sprite–wooo-sahhh-2.jpeg', video: 'https://player.vimeo.com/video/952829011' },
-  { image: '/src/assets/my-work/sprite-ramadan.jpeg', video: 'https://player.vimeo.com/video/952828519' },
-  { image: '/src/assets/my-work/sprite-karahi.jpeg', video: 'https://player.vimeo.com/video/952828443' },
-  { image: '/src/assets/my-work/sprite-apni-pyas-ko-sprite-kr.jpeg', video: 'https://player.vimeo.com/video/952828399' },
-  { image: '/src/assets/my-work/sooper-hamesha-wala-pyar.jpeg', video: 'https://player.vimeo.com/video/952828315' },
-  { image: '/src/assets/my-work/shoop-trust-tou-must-hai.jpeg', video: 'https://player.vimeo.com/video/952828134' },
-  { image: '/src/assets/my-work/shoop-improved-flavors.jpeg', video: 'https://player.vimeo.com/video/952828096' },
-  { image: '/src/assets/my-work/shoop-chotoo-pack.jpeg', video: 'https://player.vimeo.com/video/952828057' },
-  { image: '/src/assets/my-work/safeguard-soap.jpeg', video: 'https://player.vimeo.com/video/952828022' },
-  { image: '/src/assets/my-work/PTCL-truly-unlimited.jpeg', video: 'https://player.vimeo.com/video/952827950' },
-  { image: '/src/assets/my-work/PTCL-flash-fiber.jpeg', video: 'https://player.vimeo.com/video/952827905' },
-  { image: '/src/assets/my-work/pel-wedding-jackpot.jpeg', video: 'https://player.vimeo.com/video/952827821' },
-  { image: '/src/assets/my-work/Panther Tyres - King 56.jpeg', video: 'https://player.vimeo.com/video/952827765' },
-  { image: '/src/assets/my-work/National Foods - Sister.jpeg', video: 'https://player.vimeo.com/video/952827523' },
-  { image: '/src/assets/my-work/National Foods - Office.jpeg', video: 'https://player.vimeo.com/video/952827433' },
-  { image: '/src/assets/my-work/National Foods - Ketchup.jpeg', video: 'https://player.vimeo.com/video/952827341' },
-  { image: '/src/assets/my-work/National Foods - Ketchup.jpeg', video: 'https://player.vimeo.com/video/952827290' },
-  { image: '/src/assets/my-work/McDonald’s - Yeh Such Hai.jpeg', video: 'https://player.vimeo.com/video/952827227' },
-  { image: '/src/assets/my-work/Max - Lemon Max Bar.jpeg', video: 'https://player.vimeo.com/video/952827197' },
-  { image: '/src/assets/my-work/Lifebuoy - Neem aur Haldi.jpeg', video: 'https://player.vimeo.com/video/952827178' },
-  { image: '/src/assets/my-work/Lemon Max - Long Bar.jpeg', video: 'https://player.vimeo.com/video/952826192' },
-  { image: '/src/assets/my-work/Lemon Max - Karahi.jpeg', video: 'https://player.vimeo.com/video/952826047' },
-  { image: '/src/assets/my-work/Lays University.jpeg', video: 'https://player.vimeo.com/video/952825999' },
-  { image: '/src/assets/my-work/Lays - Smile.jpeg', video: 'https://player.vimeo.com/video/952825837' },
-  { image: '/src/assets/my-work/Lays - Friends.jpeg', video: 'https://player.vimeo.com/video/952825790' },
-  { image: '/src/assets/my-work/Kia - Stonic Play It Young(0).jpeg', video: 'https://player.vimeo.com/video/952825710' },
-  { image: '/src/assets/my-work/Kia - Stonic Play It Young.jpeg', video: 'https://player.vimeo.com/video/952825400' },
-  { image: '/src/assets/my-work/kia-picanto.jpeg', video: 'https://player.vimeo.com/video/952825358' },
-  { image: '/src/assets/my-work/Kashmir Oil - Heritage.jpeg', video: 'https://player.vimeo.com/video/952825285' },
-  { image: '/src/assets/my-work/Kashmir Oil - Guests.jpeg', video: 'https://player.vimeo.com/video/952825231' },
-  { image: '/src/assets/my-work/K&Ns-Parcham.jpeg', video: 'https://player.vimeo.com/video/952825103' },
-  { image: '/src/assets/my-work/Jazz Cash - Payment Gateway(0).jpeg', video: 'https://player.vimeo.com/video/952824893' },
-  { image: '/src/assets/my-work/Jazz Cash - Payment Gateway.jpeg', video: 'https://player.vimeo.com/video/952824873' },
-  { image: '/src/assets/my-work/Jazz Cash - Online Payments.jpeg', video: 'https://player.vimeo.com/video/952824848' },
-  { image: '/src/assets/my-work/Jazz Cash - Money Transfer.jpeg', video: 'https://player.vimeo.com/video/952824797' },
-  { image: '/src/assets/my-work/Jazz Cash - Debit Card.jpeg', video: 'https://player.vimeo.com/video/952824687' },
-  { image: '/src/assets/my-work/Inovative - Butter Crunch.jpeg', video: 'https://player.vimeo.com/video/952824484' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824385' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824356' },
-  { image: '/src/assets/my-work/Hilal Cup Kake - Superhero.jpeg', video: 'https://player.vimeo.com/video/952824308' },
-  { image: '/src/assets/my-work/Gluco - Juniors.jpeg', video: 'https://player.vimeo.com/video/952824280' },
-  { image: '/src/assets/my-work/Food Panda Boys.jpeg', video: 'https://player.vimeo.com/video/952824252' },
-  { image: '/src/assets/my-work/Embrace - Womanhood.jpeg', video: 'https://player.vimeo.com/video/952824218' },
-  { image: '/src/assets/my-work/EBM - Temple Run.jpeg', video: 'https://player.vimeo.com/video/952824005' },
-  { image: '/src/assets/my-work/Easy Paisa - Pin Chor.jpeg', video: 'https://player.vimeo.com/video/952823956' },
-  { image: '/src/assets/my-work/Dulux ICI - Mileage.jpeg', video: 'https://player.vimeo.com/video/952820223' },
-  { image: '/src/assets/my-work/Diamond Supreme Foam - Guarantee.jpeg', video: 'https://player.vimeo.com/video/952820022' },
-  { image: '/src/assets/my-work/Coca Cola - Hum Aik Hain.jpeg', video: 'https://player.vimeo.com/video/952819684' },
-  { image: '/src/assets/my-work/Candyland - Novella.jpeg', video: 'https://player.vimeo.com/video/952819634' },
-  { image: '/src/assets/my-work/Cadbury - Moro.jpeg', video: 'https://player.vimeo.com/video/952819498' },
-  { image: '/src/assets/my-work/Cadbury - Dairy Milk.jpeg', video: 'https://player.vimeo.com/video/952819479' },
-  { image: '/src/assets/my-work/Bonus - Ziada.jpeg', video: 'https://player.vimeo.com/video/952819381' },
-  { image: '/src/assets/my-work/Bata - Surprisingly Bata.jpeg', video: 'https://player.vimeo.com/video/952819301' },
-  { image: '/src/assets/my-work/Bank Alfalah - Orbits.jpeg', video: 'https://player.vimeo.com/video/952819198' },
+  { image: kiaImage, video: 'https://player.vimeo.com/video/954996067' },
+  { image: peugeotImage, video: 'https://player.vimeo.com/video/954995426' },
+  { image: revoImage, video: 'https://player.vimeo.com/video/954992368' },
+  { image: toyotaYarisEntertainmentImage, video: 'https://player.vimeo.com/video/954986732' },
+  { image: yarisImage, video: 'https://player.vimeo.com/video/954985999' },
+  { image: mobilySequence1Image, video: 'https://www.youtube.com/embed/P2mWFCLSoEI?si=viCRo72rXQowfFUp' },
+  { image: mobilySequence2Image, video: 'https://www.youtube.com/embed/hRF0YapBVoA?si=PaGnY6zdUAlQPhgz' },
+  { image: mobilySequence3Image, video: 'https://www.youtube.com/embed/_WXC_BCwPwk?si=ijSZOm0qywHcZz51' },
+  { image: mobilySequence4Image, video: 'https://www.youtube.com/embed/cGYQimv2NUI?si=m3-TLcBtD6f564lE' },
+  { image: toyotaYarisFuelEfficientImage, video: 'https://player.vimeo.com/video/954983038' },
+  { image: customerExperienceAtHyundaiImage, video: 'https://player.vimeo.com/video/954981783' },
+  { image: hyundaiAfterSalesExperienceCustomerStoriesImage, video: 'https://player.vimeo.com/video/954980403' },
+  { image: hyundaiCentralAftersalesImage, video: 'https://player.vimeo.com/video/954979807' },
+  { image: MG1Image, video: 'https://player.vimeo.com/video/954977536' },
+  { image: MG2Image, video: 'https://player.vimeo.com/video/954976224' },
+  { image: mgAnthemImage, video: 'https://player.vimeo.com/video/954972354' },
+  { image: KIAPowerToSurpriseImage, video: 'https://player.vimeo.com/video/954970987' },
+  { image: KIAMotorsImage, video: 'https://player.vimeo.com/video/954967139' },
+  { image: samsungZFoldImage, video: 'https://player.vimeo.com/video/954961656' },
+  { image: samsungS24Image, video: 'https://player.vimeo.com/video/954959656' },
+  { image: spriteApniPyasImage, video: 'https://player.vimeo.com/video/954958154' },
+  { image: easyPaisaFilm4Of7Image, video: 'https://player.vimeo.com/video/954956461' },
+  { image: easyPaisaFilm3Of7Image, video: 'https://player.vimeo.com/video/954954489' },
+  { image: KnorrFuzonImage, video: 'https://player.vimeo.com/video/954389710' },
+  { image: spriteTrafficImage, video: 'https://player.vimeo.com/video/954388970' },
+  { image: PSOQuaidDayImage, video: 'https://player.vimeo.com/video/954386031' },
+  { image: NestleMilkpakRamzanImage, video: 'https://player.vimeo.com/video/954383015' },
+  { image: NestleMilkpakImage, video: 'https://player.vimeo.com/video/954382012' },
+  { image: UfoneDataBohhaaatHaiImage, video: 'https://player.vimeo.com/video/954377608' },
+  { image: UfoneUpaisaFaidaBohhaaatHaiImage, video: 'https://player.vimeo.com/video/954376971' },
+  { image: zindagiFinancialImage, video: 'https://player.vimeo.com/video/952830327' },
+  { image: zameenDotComImage, video: 'https://player.vimeo.com/video/952830229' },
+  { image: xcellMobileImage, video: 'https://player.vimeo.com/video/952830127' },
+  { image: tuxTakeImage, video: 'https://player.vimeo.com/video/952830071' },
+  { image: toyotaCorollaImage, video: 'https://player.vimeo.com/video/952830024' },
+  { image: telenorEasyPaisaImage, video: 'https://player.vimeo.com/video/952829983' },
+  { image: telenorEasyPaisa0Image, video: 'https://player.vimeo.com/video/952829929' },
+  { image: telenorEasyPaisa0Image, video: 'https://player.vimeo.com/video/952829900' },
+  { image: telenor4GshaadiImage, video: 'https://player.vimeo.com/video/952829862' },
+  { image: telenor4GcafeImage, video: 'https://player.vimeo.com/video/952829814' },
+  { image: tapalDanedar0Image, video: 'https://player.vimeo.com/video/952829530' },
+  { image: tangGirlImage, video: 'https://player.vimeo.com/video/952829493' },
+  { image: tangBoyImage, video: 'https://player.vimeo.com/video/952829473' },
+  { image: suzukiAltoImage, video: 'https://player.vimeo.com/video/952829422' },
+  { image: surfExcelCricketImage, video: 'https://player.vimeo.com/video/952829380' },
+  { image: spriteWoooSahhhImage, video: 'https://player.vimeo.com/video/952829081' },
+  { image: spriteWoooSahhh3Image, video: 'https://player.vimeo.com/video/952829065' },
+  { image: spriteWoooSahhh1Image, video: 'https://player.vimeo.com/video/952829033' },
+  { image: spriteWoooSahhh2Image, video: 'https://player.vimeo.com/video/952829011' },
+  { image: spriteRamadanImage, video: 'https://player.vimeo.com/video/952828519' },
+  { image: spriteKarahiImage, video: 'https://player.vimeo.com/video/952828443' },
+  { image: spriteApniPyasKoSpriteKrImage, video: 'https://player.vimeo.com/video/952828399' },
+  { image: sooperHameshaWalaPyarImage, video: 'https://player.vimeo.com/video/952828315' },
+  { image: shoopTrustTouMustHaiImage, video: 'https://player.vimeo.com/video/952828134' },
+  { image: shoopImprovedFlavorsImage, video: 'https://player.vimeo.com/video/952828096' },
+  { image: shoopChotooPackImage, video: 'https://player.vimeo.com/video/952828057' },
+  { image: safeguardSoapImage, video: 'https://player.vimeo.com/video/952828022' },
+  { image: PTCLTrulyUnlimitedImage, video: 'https://player.vimeo.com/video/952827950' },
+  { image: PTCLFlashFiberImage, video: 'https://player.vimeo.com/video/952827905' },
+  { image: pelWeddingJackpotImage, video: 'https://player.vimeo.com/video/952827821' },
+  { image: PantherTyresKing56Image, video: 'https://player.vimeo.com/video/952827765' },
+  { image: nationalFoodsSisterImage, video: 'https://player.vimeo.com/video/952827523' },
+  { image: nationalFoodsOfficeImage, video: 'https://player.vimeo.com/video/952827433' },
+  { image: nationalFoodsKetchup1Image, video: 'https://player.vimeo.com/video/952827341' },
+  { image: nationalFoodsKetchup2Image, video: 'https://player.vimeo.com/video/952827290' },
+  { image: mcdonaldsYehSuchHaiImage, video: 'https://player.vimeo.com/video/952827227' },
+  { image: maxLemonMaxBarImage, video: 'https://player.vimeo.com/video/952827197' },
+  { image: lifebuoyNeemAurHaldiImage, video: 'https://player.vimeo.com/video/952827178' },
+  { image: lemonMaxLongBarImage, video: 'https://player.vimeo.com/video/952826192' },
+  { image: lemonMaxKarahiImage, video: 'https://player.vimeo.com/video/952826047' },
+  { image: laysUniversityImage, video: 'https://player.vimeo.com/video/952825999' },
+  { image: laysSmileImage, video: 'https://player.vimeo.com/video/952825837' },
+  { image: laysFriendsImage, video: 'https://player.vimeo.com/video/952825790' },
+  { image: kiaStonicPlayItYoung0Image, video: 'https://player.vimeo.com/video/952825710' },
+  { image: kiaStonicPlayItYoungImage, video: 'https://player.vimeo.com/video/952825400' },
+  { image: kiaPicantoImage, video: 'https://player.vimeo.com/video/952825358' },
+  { image: kashmirOilHeritageImage, video: 'https://player.vimeo.com/video/952825285' },
+  { image: kashmirOilGuestsImage, video: 'https://player.vimeo.com/video/952825231' },
+  { image: kAndNsParchamImage, video: 'https://player.vimeo.com/video/952825103' },
+  { image: jazzCashPaymentGateway0Image, video: 'https://player.vimeo.com/video/952824893' },
+  { image: jazzCashPaymentGatewayImage, video: 'https://player.vimeo.com/video/952824873' },
+  { image: jazzCashOnlinePaymentsImage, video: 'https://player.vimeo.com/video/952824848' },
+  { image: jazzCashMoneyTransferImage, video: 'https://player.vimeo.com/video/952824797' },
+  { image: jazzCashDebitCardImage, video: 'https://player.vimeo.com/video/952824687' },
+  { image: inovativeButterCrunchImage, video: 'https://player.vimeo.com/video/952824484' },
+  { image: hilalCupKakeSuperhero1Image, video: 'https://player.vimeo.com/video/952824385' },
+  { image: hilalCupKakeSuperhero2Image, video: 'https://player.vimeo.com/video/952824356' },
+  { image: hilalCupKakeSuperhero3Image, video: 'https://player.vimeo.com/video/952824308' },
+  { image: glucoJuniorsImage, video: 'https://player.vimeo.com/video/952824280' },
+  { image: foodPandaBoysImage, video: 'https://player.vimeo.com/video/952824252' },
+  { image: embraceWomanhoodImage, video: 'https://player.vimeo.com/video/952824218' },
+  { image: ebmTempleRunImage, video: 'https://player.vimeo.com/video/952824005' },
+  { image: easyPaisaPinChorImage, video: 'https://player.vimeo.com/video/952823956' },
+  { image: duluxICIMileageImage, video: 'https://player.vimeo.com/video/952820223' },
+  { image: diamondSupremeFoamGuaranteeImage, video: 'https://player.vimeo.com/video/952820022' },
+  { image: cocaColaHumAikHainImage, video: 'https://player.vimeo.com/video/952819684' },
+  { image: candylandNovellaImage, video: 'https://player.vimeo.com/video/952819634' },
+  { image: cadburyMoroImage, video: 'https://player.vimeo.com/video/952819498' },
+  { image: cadburyDairyMilkImage, video: 'https://player.vimeo.com/video/952819479' },
+  { image: bonusZiadaImage, video: 'https://player.vimeo.com/video/952819381' },
+  { image: bataSurprisinglyBataImage, video: 'https://player.vimeo.com/video/952819301' },
+  { image: bankAlfalahOrbitsImage, video: 'https://player.vimeo.com/video/952819198' },
+  { image: shehzadRoySongBalochistanTadpolefilmsImage, video: 'https://player.vimeo.com/video/952818362' },
   
 ]);
 
 const documentaryVideos = ref([
-  { image: '/src/assets/my-work/hyundai-after-sales-experience-customer-stories.jpeg', video: 'https://player.vimeo.com/video/954980403' },
-  { image: '/src/assets/my-work/hyundai-central-aftersales.jpeg', video: 'https://player.vimeo.com/video/954979807' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954977536' },
-  { image: '/src/assets/my-work/MG.jpeg', video: 'https://player.vimeo.com/video/954976224' },
+  { image: hyundaiAfterSalesExperienceCustomerStoriesImage, video: 'https://player.vimeo.com/video/954980403' },
+  { image: hyundaiCentralAftersalesImage, video: 'https://player.vimeo.com/video/954979807' },
+  { image: MG1Image, video: 'https://player.vimeo.com/video/954977536' },
+  { image: MG2Image, video: 'https://player.vimeo.com/video/954976224' },
 ]);
 
 const musicVideos = ref([
-{ image: '/src/assets/my-work/Coca Cola - Hum Aik Hain.jpeg', video: 'https://player.vimeo.com/video/952819684' },
-{ image: '/src/assets/my-work/Shehzad Roy Song Balochistan tadpolefilms.jpeg', video: 'https://player.vimeo.com/video/952818362' },
+{ image: cocaColaHumAikHainImage, video: 'https://player.vimeo.com/video/952819684' },
+{ image: shehzadRoySongBalochistanTadpolefilmsImage, video: 'https://player.vimeo.com/video/952818362' },
 
 ]);
 
 const featureFilmVideos = ref([
-  { image: '/src/assets/my-work/teefa-in-trouble-trailer.jpeg', video: 'https://player.vimeo.com/video/952829718' },
-  { image: '/src/assets/my-work/teefa-trouble-teaser.jpeg', video: 'https://player.vimeo.com/video/952829678' },
-  { image: '/src/assets/my-work/rawalpindi.png', video: 'https://www.youtube.com/embed/cTul7pWWNXM?si=GhOT7Dz_vRjTkn3g' },
+  { image: rawalpindiImage, video: 'https://www.youtube.com/embed/cTul7pWWNXM?si=GhOT7Dz_vRjTkn3g' },
+  { image: teefaInTroubleTrailerImage, video: 'https://player.vimeo.com/video/952829718' },
+  { image: teefaTroubleTeaserImage, video: 'https://player.vimeo.com/video/952829678' },
 
 ]);
 
@@ -329,6 +436,7 @@ const closeIframe = () => {
   margin-top: -20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  min-height: 100vh;
 
   h1 {
     color: #fefefe;

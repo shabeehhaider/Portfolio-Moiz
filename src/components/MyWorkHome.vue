@@ -38,9 +38,9 @@ import img4 from '../assets/my-work/revo.jpeg';
 import img5 from '../assets/my-work/toyota-yaris-entertainment.jpeg';
 import img6 from '../assets/my-work/yaris.jpeg';
 import img7 from '../assets/my-work/mg-anthem.jpeg';
-import img8 from '../assets/my-work/Panther Tyres - King 56.jpeg';
-import img9 from '../assets/my-work/Coca Cola - Hum Aik Hain.jpeg';
-import img10 from '../assets/my-work/Jazz Cash - Debit Card.jpeg';
+import img8 from '../assets/my-work/panther-tyres-king56.jpeg';
+import img9 from '../assets/my-work/coca-cola-hum-aik-hain.jpeg';
+import img10 from '../assets/my-work/jazz-cash-debit-card.jpeg';
 import img11 from '../assets/my-work/sprite–wooo-sahhh-2.jpeg';
 import img12 from '../assets/my-work/mobily-sequence-1.png';
 import img13 from '../assets/my-work/mobily-sequence-2.png';
@@ -115,6 +115,7 @@ const closeIframe = () => {
   margin-top: -20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  min-height: 100vh;
 
   h1 {
     color: #fefefe;
