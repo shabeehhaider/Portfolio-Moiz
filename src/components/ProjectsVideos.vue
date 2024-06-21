@@ -1,17 +1,6 @@
 <template>
   <section class="video-slider">
     <Splide :options="options" aria-label="My Favorite Videos">
-      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954994541')">
-        <div class="video-container">
-          <video autoplay muted playsinline loop preload="auto">
-            <source src="../assets/slider-videos/netflix.mp4" type="video/mp4">
-          </video>
-          <div class="video-label">
-            <h3>The Greatest Rivalry: India vs Pakistan</h3>
-            <p>The first Netflix Original to be shot in Pakistan.</p>
-          </div>
-        </div>
-      </SplideSlide>
       <SplideSlide @click="openIframe('https://www.youtube.com/embed/cGYQimv2NUI?si=vaxOfLk-n4yD2uAp')">
         <div class="video-container">
           <video autoplay muted playsinline loop preload="auto">
@@ -20,6 +9,17 @@
           <div class="video-label">
             <h3>Mobily</h3>
             <p>Connecting You to Unforgettable Moments.</p>
+          </div>
+        </div>
+      </SplideSlide>
+      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954994541')">
+        <div class="video-container">
+          <video autoplay muted playsinline loop preload="auto">
+            <source src="../assets/slider-videos/netflix.mp4" type="video/mp4">
+          </video>
+          <div class="video-label">
+            <h3>The Greatest Rivalry: India vs Pakistan</h3>
+            <p>The first Netflix Original to be shot in Pakistan.</p>
           </div>
         </div>
       </SplideSlide>
