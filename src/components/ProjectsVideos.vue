@@ -1,9 +1,31 @@
 <template>
   <section class="video-slider">
     <Splide :options="options" aria-label="My Favorite Videos">
+      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954994541')">
+        <div class="video-container">
+          <video autoplay muted playsinline loop preload="auto">
+            <source src="../assets/slider-videos/netflix.mp4" type="video/mp4">
+          </video>
+          <div class="video-label">
+            <h3>The Greatest Rivalry: India vs Pakistan</h3>
+            <p>The first Netflix Original to be shot in Pakistan.</p>
+          </div>
+        </div>
+      </SplideSlide>
+      <SplideSlide @click="openIframe('https://www.youtube.com/embed/cGYQimv2NUI?si=vaxOfLk-n4yD2uAp')">
+        <div class="video-container">
+          <video autoplay muted playsinline loop preload="auto">
+            <source src="../assets/slider-videos/mobilysequence.mp4" type="video/mp4">
+          </video>
+          <div class="video-label">
+            <h3>Mobily</h3>
+            <p>Connecting You to Unforgettable Moments.</p>
+          </div>
+        </div>
+      </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/954995426')">
         <div class="video-container">
-          <video autoplay muted playsinline loop>
+          <video autoplay muted playsinline loop preload="auto">
             <source src="../assets/slider-videos/peugeot.mp4" type="video/mp4">
           </video>
           <div class="video-label">
@@ -14,7 +36,7 @@
       </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/954996067')">
         <div class="video-container">
-          <video autoplay muted playsinline loop>
+          <video autoplay muted playsinline loop preload="auto">
             <source src="../assets/slider-videos/kia-picanto.mp4" type="video/mp4">
           </video>
           <div class="video-label">
@@ -23,31 +45,9 @@
           </div>
         </div>
       </SplideSlide>
-      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954992368')">
-        <div class="video-container">
-          <video autoplay muted playsinline loop>
-            <source src="../assets/slider-videos/toyota-revo.mp4" type="video/mp4">
-          </video>
-          <div class="video-label">
-            <h3>Toyota Revo</h3>
-            <p>Reliability and Versatility Redefined..</p>
-          </div>
-        </div>
-      </SplideSlide>
-      <SplideSlide @click="openIframe('https://www.youtube.com/embed/cGYQimv2NUI?si=vaxOfLk-n4yD2uAp')">
-        <div class="video-container">
-          <video autoplay muted playsinline loop>
-            <source src="../assets/slider-videos/mobilysequence.mp4" type="video/mp4">
-          </video>
-          <div class="video-label">
-            <h3>Mobily</h3>
-            <p>Connecting You to Unforgettable Moments.</p>
-          </div>
-        </div>
-      </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/952827765')">
         <div class="video-container">
-          <video autoplay muted playsinline loop>
+          <video autoplay muted playsinline loop preload="auto">
             <source src="../assets/slider-videos/panther-tyre-king.mp4" type="video/mp4">
           </video>
           <div class="video-label">
@@ -58,7 +58,7 @@
       </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/952827227')">
         <div class="video-container">
-          <video autoplay muted playsinline loop>
+          <video autoplay muted playsinline loop preload="auto">
             <source src="../assets/slider-videos/mcDonald.mp4" type="video/mp4">
           </video>
           <div class="video-label">
@@ -67,20 +67,9 @@
           </div>
         </div>
       </SplideSlide>
-      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954994541')">
-        <div class="video-container">
-          <video autoplay muted playsinline loop>
-            <source src="../assets/slider-videos/netflix.mp4" type="video/mp4">
-          </video>
-          <div class="video-label">
-            <h3>The Greatest Rivalry: India vs Pakistan</h3>
-            <p>The first Netflix Original to be shot in Pakistan.</p>
-          </div>
-        </div>
-      </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/952829678')">
         <div class="video-container">
-          <video autoplay muted playsinline loop>
+          <video autoplay muted playsinline loop preload="auto">
             <source src="../assets/slider-videos/Teefa in Trouble - Teaser.mp4" type="video/mp4">
           </video>
           <div class="video-label">
@@ -150,14 +139,14 @@ onMounted(() => {
 .video-container {
   position: relative;
   width: 100vw;
-  height: 760px;
+  height: 100vh;
 
   @media (max-width: 768px) {
-    height: 400px; // Adjust the height for tablets
+    height: 500px; 
   }
 
   @media (max-width: 480px) {
-    height: 250px; // Adjust the height for mobile phones
+    height: 450px; 
   }
 }
 
@@ -179,14 +168,15 @@ video {
   text-align: center;
 
   @media (max-width: 768px) {
-    bottom: 30px; // Adjust the position for tablets
+    bottom: 30px; 
     padding: 8px 16px;
   }
 
   @media (max-width: 480px) {
-    bottom: 20px; // Adjust the position for mobile phones
+    bottom: 40px; 
     padding: 6px 12px;
-    font-size: 0.8em; // Adjust font size for mobile phones
+    font-size: 0.8em;
+    width: 70%; 
   }
 }
 

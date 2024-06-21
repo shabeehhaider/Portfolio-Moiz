@@ -1,6 +1,6 @@
 <template>
   <nav id="topNav" class="navbar navbar-expand-lg top-bar">
-    <div class="container">
+    <div class="container-fluid">
       <div class="logo-img">
         <a href="/">
           <img src="../assets/logorm.png" alt="logo"/>
