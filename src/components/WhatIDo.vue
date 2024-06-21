@@ -142,10 +142,6 @@ outcome</p>
       h1.specializations {
         font-size: 70px;
 
-        &::after {
-          left: 45%;
-          width: 50px;
-        }
       }
 
       .boxes .box {
@@ -157,13 +153,6 @@ outcome</p>
         }
       }
 
-      .boxes .box-hire {
-        width: 45% !important;
-        h1 {
-          font-size: 80px !important;
-          right: -140px !important;
-        }
-      }
     }
   }
 
@@ -174,10 +163,6 @@ outcome</p>
       h1.specializations {
         font-size: 50px;
 
-        &::after {
-          left: 44%;
-          width: 40px;
-        }
       }
 
       .boxes .box,
@@ -190,12 +175,6 @@ outcome</p>
         }
       }
 
-      .boxes .box-hire h1 {
-        font-size: 60px !important;
-        right: 0 !important;
-        position:  relative !important;
-
-      }
     }
   }
 
@@ -207,8 +186,9 @@ outcome</p>
         font-size: 35px;
 
         &::after {
-          left: 43%;
-          width: 30px;
+          left: 44%;
+          width: 60px;
+          bottom: 15px;
         }
       }
 
