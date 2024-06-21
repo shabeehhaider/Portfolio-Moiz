@@ -1,6 +1,17 @@
 <template>
   <section class="video-slider">
     <Splide :options="options" aria-label="My Favorite Videos">
+      <SplideSlide @click="openIframe('https://player.vimeo.com/video/954954489')">
+        <div class="video-container">
+          <video autoplay muted playsinline loop preload="auto">
+            <source src="../assets/slider-videos/EasyPaisa.mp4" type="video/mp4">
+          </video>
+          <div class="video-label">
+            <h3>EasyPaisa</h3>
+            <p>Experience the convenience of EasyPaisa, making financial transactions effortless and accessible for everyone.</p>
+          </div>
+        </div>
+      </SplideSlide>
       <SplideSlide @click="openIframe('https://player.vimeo.com/video/954994541')">
         <div class="video-container">
           <video autoplay muted playsinline loop preload="auto">
@@ -99,7 +110,7 @@ const options = {
   autoWidth: true,
   type: 'loop',
   autoplay: true,
-  interval: 10000, 
+  interval: 5000, 
   pauseOnHover: false, 
   perPage: 1,
   perMove: 1,
