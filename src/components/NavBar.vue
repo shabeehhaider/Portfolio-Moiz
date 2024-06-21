@@ -64,7 +64,7 @@ const isDropdownOpen = ref(false);
 
 const handleScroll = () => {
   const nav = document.getElementById('topNav');
-  const threshold = route.path.includes('my-work') || route.path.includes('about') || route.path.includes('contact-us') ? 60 : 700;
+  const threshold = route.path.includes('my-work') || route.path.includes('about') || route.path.includes('contact-us') ? 50 : 300;
 
   if (window.scrollY > threshold) {
     nav.classList.add('scrolled');
