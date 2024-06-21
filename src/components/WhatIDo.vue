@@ -50,14 +50,14 @@ outcome</p>
 </script>
 <style lang="scss" scoped>
 .about {
-  background-color: #484747;
+  background-color: #0e0e0e;
   position: relative;
   margin-top: -20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
   .container {
-    padding: 50px;
+    padding: 150px 50px;
     text-align: center;
 
     .what-i-do {
@@ -92,7 +92,7 @@ outcome</p>
       gap: 20px;
 
       .box {
-        width: 500px;
+        width: 49%;
         height: 300px;
         background: linear-gradient(108.44deg, rgba(255, 255, 255, 0.1) 20.99%, rgba(255, 255, 255, 0.025) 84.05%);
         display: flex;

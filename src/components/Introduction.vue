@@ -1,6 +1,6 @@
 <template>
-<section class="container intro">
-  <div class="">
+<section class="container-fluid intro">
+  <div class="intro-body">
     <h1>
       The Art of Cinematic Storytelling
     </h1>
@@ -23,14 +23,16 @@
 </template>
 <script setup>
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .intro {
   padding: 60px;
   background: #0e0e0e;
-  margin: 90px auto;
-  border-radius: 20px;
   text-align: center;
-  width: 70%;
+
+  .intro-body{
+    width: 70%;
+    margin: 90px auto;
+  }
 
   @media (max-width: 1024px) {
     padding: 50px;

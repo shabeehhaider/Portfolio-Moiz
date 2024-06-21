@@ -109,7 +109,7 @@ const closeIframe = () => {
 
 <style lang="scss" scoped>
 .work {
-  background: #17241e;
+  background: #0e0e0e;
   padding: 60px 0px;
   position: relative;
   margin-top: -20px;

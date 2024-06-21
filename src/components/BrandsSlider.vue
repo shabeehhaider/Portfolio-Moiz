@@ -133,7 +133,7 @@ const images = ref([
 <style lang="scss" scoped>
 .brands {
   background: #0e0e0e;
-  padding: 60px 0px;
+  padding: 150px 0px;
   position: relative;
   margin-top: -20px;
   border-top-left-radius: 20px;

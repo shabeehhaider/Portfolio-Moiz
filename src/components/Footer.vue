@@ -59,7 +59,14 @@
   justify-content: center;
   gap: 20px;
   border-top: 1px solid #ffffff;
-  flex-wrap: wrap; /* Allow items to wrap */
+  flex-wrap: wrap; 
+  background: #0e0e0e;
+
+  div{
+    background: #787978;
+    padding: 10px;
+    border-radius: 50%;
+  }
   
   a {
     display: flex;

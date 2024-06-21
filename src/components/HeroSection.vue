@@ -4,8 +4,7 @@
 <template>
   <section class="hero">
     <div class="hero-content col-6">
-        <h1>Hey <img class="hand" src="../assets/hand.png" alt="hand" /> , I'm <br> Moiz Zaidi</h1>
-        <p>I am a dedicated and passionate producer-director for film and television, based in Karachi, Pakistan</p>
+        <h1>Hey <img class="hand" src="../assets/hand.png" alt="hand" /> <br>I'm Moiz Zaidi</h1>
     </div>
     <div class="profile-img col-6">
         <img class="profile" src="../assets/moiz.jpeg" alt="Moiz Zaidi" />
@@ -15,7 +14,7 @@
 
 <style lang="scss" scoped>
 .hero {
-  background: #484747;
+  background: #0e0e0e;
   height: 500px;
   display: flex;
   align-items: center;
