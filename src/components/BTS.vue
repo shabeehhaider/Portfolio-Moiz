@@ -78,7 +78,7 @@
 
 <style lang="scss" scoped>
 .hero {
-  background: #484747;
+  background: #0e0e0e;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -130,6 +130,7 @@
 
 .behind-the-scene {
   padding: 20px;
+  background: #0e0e0e;
   h1 {
     color: #ffffff;
     font-family: "Poppins", sans-serif;

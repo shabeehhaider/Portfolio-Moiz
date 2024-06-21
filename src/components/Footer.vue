@@ -6,18 +6,13 @@
       </a>
     </div>
     <div>
-      <a target="_blank" href="#">
+      <a target="_blank" href="https://x.com/MoizMoix">
         <img src="../assets/socials/twitter.png" width="28px" height="28px" />
       </a>
     </div>
     <div>
-      <a target="_blank" href="#">
+      <a target="_blank" href="https://www.threads.net/@moiz.zaidi">
         <img src="../assets/socials/threads.svg" width="28px" height="28px" />
-      </a>
-    </div>
-    <div>
-      <a target="_blank" href="#">
-        <img src="../assets/socials/facebook.svg" width="28px" height="28px" />
       </a>
     </div>
     <div>
@@ -36,12 +31,12 @@
       </a>
     </div>
     <div>
-      <a href="#" target="_blank">
+      <a href="https://www.linkedin.com/in/moiz-zaidi-6ba888237/" target="_blank">
         <img src="../assets/socials/linkedin.svg" width="28px" height="28px" />
       </a>
     </div>
     <div>
-      <a href="#" target="_blank">
+      <a href="https://www.instagram.com/moiz.zaidi?utm_source=qr&igsh=c2dvMnc0azRmaWw5" target="_blank">
         <img src="../assets/socials/instagram.svg" width="28px" height="28px" />
       </a>
     </div>

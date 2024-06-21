@@ -430,7 +430,7 @@ const closeIframe = () => {
 
 <style lang="scss" scoped>
 .work {
-  background: #17241e;
+  background: #0e0e0e;
   padding: 100px 0; /* Adjust padding for smaller screens */
   position: relative;
   margin-top: -20px;
@@ -579,13 +579,15 @@ const closeIframe = () => {
     }
 
   
-
-  .work-images {
-    gap: 10px; /* Adjust gap between images for smaller screens */
-    .work-link {
-      height: 100px; /* Further adjust image height for smaller screens */
+  .work{
+    .work-images {
+      gap: 10px; /* Adjust gap between images for smaller screens */
+      .work-link {
+        height: 100px; /* Further adjust image height for smaller screens */
+      }
     }
   }
+  
 
   .iframe-modal {
     .iframe-container {

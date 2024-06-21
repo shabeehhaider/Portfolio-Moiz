@@ -140,6 +140,9 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
+.contact{
+  background: #0e0e0e;
+}
 .contact-cover {
   display: flex;
   flex-direction: column;

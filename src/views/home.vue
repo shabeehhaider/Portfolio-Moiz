@@ -22,7 +22,7 @@ import Footer from '../components/Footer.vue';
 
 <style>
 #app{
-  background: #484747;
+  background: #0e0e0e;
 }
 
 </style>

@@ -50,6 +50,10 @@
     padding: 30px;
     width: 95%;
     margin: 30px auto;
+    .intro-body{
+      width: 100%;
+      margin: 0;
+    }
   }
 }
 
