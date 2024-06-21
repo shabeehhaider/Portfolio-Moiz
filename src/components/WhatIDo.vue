@@ -37,7 +37,7 @@ outcome</p>
         </div>
         <div class="box-hire">
           <h1>
-            Hire Me
+            Lets Create Together
           </h1>
         </div>
       </div>
@@ -102,6 +102,11 @@ outcome</p>
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        h3{
+          font-size: 32px;
+          margin-bottom: 20px;
+        }
       }
 
       .box-hire {
@@ -119,12 +124,12 @@ outcome</p>
 
         h1 {
           font-family: "Poppins", sans-serif;
-          text-transform: uppercase;
-          font-size: 100px;
+          text-transform: capitalize;
+          font-size: 40px;
           color: #28e98c;
           position: absolute;
           right: -170px;
-          text-decoration: underline;
+          line-height: 3rem;
         }
       }
     }
