@@ -131,7 +131,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .video-slider {
-  background: #484747;
+  background: #0e0e0e;
   padding: 0px;
   position: relative;
 }
