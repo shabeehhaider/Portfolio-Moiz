@@ -9,22 +9,24 @@
       </router-link>
     </div>
     <div v-if="activeCategory === 'all'" class="work-images">
-      <div v-for="(item, index) in allVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in allVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="activeCategory === 'commercials'" class="work-images">
-      <div v-for="(item, index) in commercialsVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in commercialsVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="iframeVisible" class="iframe-modal" @click="closeIframe">
       <div class="iframe-container" @click.stop>
+        <button class="close-btn" @click="closeIframe"><q-icon name="close"/></button>
         <iframe :src="iframeSrc" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 </template>
+
 
 
 <script setup>
@@ -133,9 +135,9 @@ const closeIframe = () => {
     flex-wrap: wrap;
 
     .explore-btn {
-      background: #28e98c;
+      background: transparent;
       color: #fff;
-      border: 0;
+      border: 1px solid;
       font-size: 18px;
       padding: 10px 20px;
       border-radius: 5px;
@@ -143,7 +145,7 @@ const closeIframe = () => {
       transition: background 0.3s;
 
       &:hover {
-        background: #1ca973;
+        background: transparent;
       }
     }
   }
@@ -170,14 +172,23 @@ const closeIframe = () => {
     margin-top: 50px;
 
     .work-link {
+      width: 25%;
       border-radius: 20px;
-      overflow: hidden;
-      height: 200px;
+      height: 360px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #0e0e0e;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      }
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 20px;
       }
     }
   }
@@ -203,7 +214,8 @@ const closeIframe = () => {
 
     .work-images {
       .work-link {
-        height: 180px;
+        width: 25%;
+        height: 340px;
       }
     }
   }
@@ -229,7 +241,8 @@ const closeIframe = () => {
 
     .work-images {
       .work-link {
-        height: 160px;
+        width: 40%;
+        height: 320px;
       }
     }
   }
@@ -257,7 +270,12 @@ const closeIframe = () => {
 
     .work-images {
       .work-link {
-        height: 140px;
+        width: 90%;
+        height: 300px;
+        &:hover {
+          transform: scale(1);
+          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
       }
     }
   }
@@ -277,12 +295,32 @@ const closeIframe = () => {
 
   .iframe-container {
     position: relative;
-    width: 80%;
+    width: 50%;
     height: 50%;
 
     iframe {
       width: 100%;
       height: 100%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      color: #000;
+      z-index: 10000;
+
     }
   }
 
@@ -290,6 +328,11 @@ const closeIframe = () => {
     .iframe-container {
       width: 90%;
       height: 50%;
+      .close-btn {
+        position: absolute;
+        top: -100px;
+        right: -30px;
+      }
     }
   }
 
@@ -297,8 +340,15 @@ const closeIframe = () => {
     .iframe-container {
       width: 95%;
       height: 30%;
+      .close-btn {
+        position: absolute;
+        top: -100px;
+        right: 0px;
+      }
     }
   }
 }
 </style>
+
+
 

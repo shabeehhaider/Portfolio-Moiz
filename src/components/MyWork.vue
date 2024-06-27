@@ -9,32 +9,33 @@
       <button @click="showFeatureFilm" :class="{ active: activeCategory === 'featureFilm' }">Feature Film</button>
     </div>
     <div v-if="activeCategory === 'all'" class="work-images">
-      <div v-for="(item, index) in allVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in allVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="activeCategory === 'commercials'" class="work-images">
-      <div v-for="(item, index) in commercialsVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in commercialsVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="activeCategory === 'documentary'" class="work-images">
-      <div v-for="(item, index) in documentaryVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in documentaryVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="activeCategory === 'music'" class="work-images">
-      <div v-for="(item, index) in musicVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in musicVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="activeCategory === 'featureFilm'" class="work-images">
-      <div v-for="(item, index) in featureFilmVideos" :key="index" class="work-link col-3">
+      <div v-for="(item, index) in featureFilmVideos" :key="index" class="work-link">
         <img :src="item.image" @click="openIframe(item.video)" />
       </div>
     </div>
     <div v-if="iframeVisible" class="iframe-modal" @click="closeIframe">
       <div class="iframe-container" @click.stop>
+        <button class="close-btn" @click="closeIframe"><q-icon name="close"/></button>
         <iframe :src="iframeSrc" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -454,9 +455,9 @@ const closeIframe = () => {
     gap: 10px;
 
     .explore-btn {
-      background: #28e98c;
+      background: transparent;
       color: #fff;
-      border: 0;
+      border: 1px solid;
       font-size: 16px; /* Adjust font size for smaller screens */
       padding: 8px 16px; /* Adjust padding for smaller screens */
       border-radius: 5px;
@@ -491,14 +492,23 @@ const closeIframe = () => {
     margin-top: 30px; /* Adjust margin for smaller screens */
 
     .work-link {
+      width: 25%;
       border-radius: 20px;
-      overflow: hidden;
-      height: 150px; /* Adjust height for smaller screens */
+      height: 360px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #0e0e0e;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+      }
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 20px;
       }
     }
   }
@@ -518,25 +528,88 @@ const closeIframe = () => {
 
   .iframe-container {
     position: relative;
-    width: 90%; /* Adjust width for smaller screens */
-    height: 90%; /* Adjust height for smaller screens */
+    width: 90%;
+    height: 90%;
 
     iframe {
       width: 100%;
       height: 100%;
     }
+
+    .close-btn {
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      color: #000;
+      z-index: 10000;
+
+      &:hover {
+        background: #e0e0e0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .work {
+    padding: 80px 0;
+    .btns {
+      gap: 5px;
+      flex-wrap: wrap;
+      button {
+        font-size: 14px;
+        padding: 4px;
+      }
+    }
+    .work-images {
+      .work-link {
+        width: 40%;
+        height: 320px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+  .iframe-modal {
+    .iframe-container {
+    width: 90%;
+    height: 50%;
+    .close-btn {
+      top: -60px;
+      right: -10px;
+    }
+  }
   }
 }
 
 @media (max-width: 768px) {
   .work {
-    padding: 80px 0; /* Example: Adjust padding for smaller devices */
+    padding: 80px 0;
     .btns {
       gap: 5px;
       flex-wrap: wrap;
-      button{
+      button {
         font-size: 14px;
         padding: 4px;
+      }
+    }
+    .work-images {
+      .work-link {
+        width: 40%;
+        height: 320px;
       }
     }
   }
@@ -544,17 +617,12 @@ const closeIframe = () => {
   h1 {
     font-size: 20px; /* Example: Reduce font size for smaller devices */
   }
-
-  .work-images {
-    .work-link {
-      height: 120px; /* Example: Adjust image height for smaller devices */
-    }
-  }
-
-  .iframe-modal {
-    .iframe-container {
-      width: 100%; /* Example: Adjust modal width for smaller devices */
-      height: 30%; /* Example: Adjust modal height for smaller devices */
+  .iframe-container {
+    width: 90%;
+    height: 50%;
+    .close-btn {
+      top: -60px;
+      right: -10px;
     }
   }
 }
@@ -569,32 +637,37 @@ const closeIframe = () => {
   }
 
   .btns {
-      flex-wrap: wrap;
-      gap: 5px;
-      button{
-        font-size: 14px;
-        padding: 4px;
-        gap: 4px;
-      }
+    flex-wrap: wrap;
+    gap: 5px;
+    button {
+      font-size: 14px;
+      padding: 4px;
+      gap: 4px;
     }
+  }
 
-  
-  .work{
+  .work {
     .work-images {
-      gap: 10px; /* Adjust gap between images for smaller screens */
+      gap: 20px;
       .work-link {
-        height: 100px; /* Further adjust image height for smaller screens */
+        width: 90%;
+        height: 300px;
+        &:hover {
+          transform: scale(1);
+        }
       }
     }
   }
-  
 
-  .iframe-modal {
-    .iframe-container {
-      width: 100%; /* Further adjust modal width for smaller screens */
-      height: 30%; /* Further adjust modal height for smaller screens */
+  .iframe-container {
+    width: 95%;
+    height: 30%;
+    .close-btn {
+      top: -60px;
+      right: -10px;
     }
   }
 }
 </style>
+
 

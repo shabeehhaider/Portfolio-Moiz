@@ -238,6 +238,7 @@ p {
   border-radius: 10px;
   overflow: hidden;
 
+
   @media (max-width: 768px) {
     width: 90%; // Adjust width for tablets
     max-width: 600px;
@@ -253,6 +254,8 @@ iframe {
   width: 100%;
   height: 450px;
   border: none;
+
+  
 
   @media (max-width: 768px) {
     height: 350px; // Adjust height for tablets
