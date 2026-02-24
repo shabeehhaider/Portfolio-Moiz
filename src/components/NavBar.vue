@@ -1,59 +1,57 @@
 <template>
-  <nav id="topNav" class="navbar navbar-expand-lg top-bar">
-    <div class="container-fluid">
-      <div class="logo-img">
+  <nav id="topNav" class="top-bar">
+    <div class="nav-inner">
+      <div class="logo-wrap">
         <a href="/">
-          <img src="../assets/logorm.png" alt="logo"/>
+          <img src="../assets/logorm.png" alt="Moiz Zaidi" />
         </a>
       </div>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <div>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" target="_blank" href="mailto:moix.xaidi@gmail.com">
-              <q-icon name="mail" />
-            </a>  
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tel:+923334454814">
-              <q-icon name="phone" />
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://wa.me/923334454814" target="_blank">
-              <img src="../assets/whatsapp-icon.svg" width="28px" height="28px" />
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.youtube.com/@moizzaidi7068" target="_blank">
-              <img src="../assets/youtube.svg" width="28px" height="28px" />
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://vimeo.com/user98514964" target="_blank">
-              <img src="../assets/vimeo.svg" width="28px" height="28px" style="filter: invert(1);" />
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="menuIcon" @click.prevent="toggleDropdown">
-              <q-icon name="menu" />
-            </a>
-            <div class="sidebar-menu" :class="{ show: isDropdownOpen }" aria-labelledby="menuIcon">
-              <q-icon class="sidebar-item" name="close" @click="toggleDropdown"/>
-              <a class="sidebar-item" href="/">Home</a>
-              <a class="sidebar-item" href="/about">About</a>
-              <a class="sidebar-item" href="/my-work">My Work</a>
-              <a class="sidebar-item" href="/contact-us">Contact us</a>
-            </div>
-          </li>
-        </ul>
+
+      <div class="nav-actions">
+        <a class="nav-icon" target="_blank" href="mailto:moix.xaidi@gmail.com" title="Email">
+          <q-icon name="mail" />
+        </a>
+        <a class="nav-icon" href="tel:+923334454814" title="Call">
+          <q-icon name="phone" />
+        </a>
+        <a class="nav-icon" href="https://wa.me/923334454814" target="_blank" title="WhatsApp">
+          <img src="../assets/whatsapp-icon.svg" width="20" height="20" />
+        </a>
+        <a class="nav-icon" href="https://www.youtube.com/@moizzaidi7068" target="_blank" title="YouTube">
+          <img src="../assets/youtube.svg" width="20" height="20" />
+        </a>
+        <a class="nav-icon" href="https://vimeo.com/user98514964" target="_blank" title="Vimeo">
+          <img src="../assets/vimeo.svg" width="20" height="20" style="filter: invert(1);" />
+        </a>
+        <button class="menu-btn" @click.stop="toggleDropdown" :class="{ open: isDropdownOpen }" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" :class="{ visible: isDropdownOpen }" @click="toggleDropdown"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" :class="{ open: isDropdownOpen }">
+      <button class="sidebar-close" @click="toggleDropdown" aria-label="Close menu">
+        <q-icon name="close" />
+      </button>
+      <nav class="sidebar-nav">
+        <a href="/" @click="toggleDropdown">Home</a>
+        <a href="/my-work" @click="toggleDropdown">My Work</a>
+        <a href="/about" @click="toggleDropdown">About</a>
+        <a href="/contact-us" @click="toggleDropdown">Contact</a>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Director · Producer · Creative</p>
+        <p class="sidebar-email">moix.xaidi@gmail.com</p>
       </div>
     </div>
   </nav>
 </template>
-
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -64,263 +62,275 @@ const isDropdownOpen = ref(false);
 
 const handleScroll = () => {
   const nav = document.getElementById('topNav');
-  const threshold = route.path.includes('my-work') || route.path.includes('about') || route.path.includes('contact-us') ? 50 : 300;
-
-  if (window.scrollY > threshold) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+  const threshold = route.path === '/' ? 100 : 50;
+  nav.classList.toggle('scrolled', window.scrollY > threshold);
 };
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
-};
-
-const handleClickOutside = (event) => {
-  const dropdownMenu = document.querySelector('.sidebar-menu');
-  const menuIcon = document.getElementById('menuIcon');
-  if (dropdownMenu && !dropdownMenu.contains(event.target) && !menuIcon.contains(event.target)) {
-    isDropdownOpen.value = false;
-  }
+  document.body.style.overflow = isDropdownOpen.value ? 'hidden' : '';
 };
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-  document.addEventListener('click', handleClickOutside);
 });
-
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
-  document.removeEventListener('click', handleClickOutside);
+  document.body.style.overflow = '';
 });
 </script>
 
-
-
-
 <style lang="scss">
-.navbar-nav {
-  margin-left: auto;
-}
-
 .top-bar {
-  height: 160px;
-  display: flex !important;
-  align-items: center !important;
-  background: transparent;
-  justify-content: space-between !important;
-  position: fixed !important;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9;
-  padding: 0 20px;
+  z-index: 900;
+  background: transparent;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
 
-  .logo-img {
-    width: 120px;
-    height: 120px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  &.scrolled {
+    background: rgba(8, 8, 8, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0 48px;
+  transition: height 0.35s ease;
+
+  .scrolled & {
+    height: 80px;
+  }
+}
+
+.logo-wrap {
+  img {
+    height: 84px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: height 0.35s ease;
+
+    .scrolled & {
+      height: 66px;
     }
   }
+}
 
-  .navbar-toggler {
-    border: none;
-    background: transparent;
-    .navbar-toggler-icon {
-      font-size: 1.5rem;
-      color: #fff;
-    }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+
+  i {
+    font-size: 20px;
   }
 
-  .collapse {
-    &.navbar-collapse {
-      flex-grow: 0;
-    }
-  }
-
-  li {
-    padding: 0 5px;
-  }
-
-  .nav-link {
-    font-family: "Poppins", sans-serif;
+  &:hover {
     color: #fff;
-    i {
-      font-size: 28px;
-    }
-    &:hover {
-      color: #fff;
-      text-decoration: none;
-    }
-    &:focus {
-      color: #fff;
-      text-decoration: none;
-    }
+    background: rgba(255, 255, 255, 0.08);
   }
 }
 
-.top-bar.scrolled {
-  background-color: #0c0e0e;
+/* Hamburger button */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 8px;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  }
 }
 
-.sidebar-menu {
-  display: block;
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 980;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(2px);
+
+  &.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+/* Sidebar */
+.sidebar {
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  padding: 100px 20px;
-  background-color: #17241e;
   height: 100vh;
-  box-shadow: -8px 0 16px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  width: 340px;
+  background: #0a0a0a;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 48px 60px;
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.open {
+    transform: translateX(0);
+  }
 }
 
-.sidebar-menu.show {
-  transform: translateX(0);
-}
-
-.sidebar-item {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  color: #fff;
-  font-size: 32px;
-}
-
-i.sidebar-item {
+.sidebar-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 32px;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
 
-@media (max-width: 1024px) {
-  .top-bar {
-    height: 120px;
+  i { font-size: 22px; }
 
-    .logo-img {
-      width: 100px;
-      height: 100px;
-    }
-
-    .nav-link i {
-      font-size: 24px;
-    }
-
-    .nav-link img {
-      width: 24px !important;
-      height: 24px !important;
-    }
-  }
-  ul.navbar-nav.mb-2.mb-lg-0{
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: space-between;
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
   }
 }
 
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  justify-content: center;
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 28px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.25s ease;
+    letter-spacing: -0.5px;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:last-child { border-bottom: none; }
+  }
+}
+
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+
+  p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0 0 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-email {
+    color: rgba(28, 169, 115, 0.8);
+    font-size: 11px;
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .top-bar {
-    height: 100px;
-    padding: 0 10px;
-
-    .logo-img {
-      width: 80px;
-      height: 80px;
-    }
-
-    .nav-link i {
-      font-size: 20px;
-    }
-
-    .nav-link img {
-      width: 20px !important;
-      height: 20px !important;
-    }
-
-    .navbar-toggler {
-      .navbar-toggler-icon {
-        font-size: 1.25rem;
-      }
-    }
-
-    .sidebar-menu {
-      width: 250px;
-      padding: 80px 20px;
-    }
-
-    .sidebar-item {
-      font-size: 28px;
-    }
-
-    i.sidebar-item {
-      font-size: 28px;
-    }
+  .nav-inner {
+    height: 80px;
+    padding: 0 24px;
   }
-  ul.navbar-nav.mb-2.mb-lg-0{
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: space-between;
+
+  .logo-wrap img {
+    height: 66px;
+  }
+
+  .nav-icon {
+    width: 34px;
+    height: 34px;
+    i { font-size: 18px; }
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 90px 32px 50px;
+  }
+
+  .sidebar-nav a {
+    font-size: 26px;
   }
 }
 
 @media (max-width: 480px) {
-  .top-bar {
-    height: 80px;
-    padding: 0 5px;
-
-    .logo-img {
-      width: 60px;
-      height: 60px;
-    }
-
-    .nav-link i {
-      font-size: 18px;
-    }
-
-    .nav-link img {
-      width: 18px !important;
-      height: 18px !important;
-    }
-
-    .navbar-toggler {
-      .navbar-toggler-icon {
-        font-size: 1rem;
-      }
-    }
-
-    .sidebar-menu {
-      width: 200px;
-      padding: 60px 20px;
-    }
-
-    .sidebar-item {
-      font-size: 24px;
-    }
-
-    i.sidebar-item {
-      font-size: 24px;
-    }
+  .nav-inner {
+    height: 70px;
+    padding: 0 16px;
   }
-  ul.navbar-nav.mb-2.mb-lg-0{
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-    justify-content: space-between;
+
+  .logo-wrap img {
+    height: 58px;
+  }
+
+  /* Hide email/phone on very small screens */
+  .nav-actions > a:nth-child(1),
+  .nav-actions > a:nth-child(2) {
+    display: none;
   }
 }
 </style>
-
-
-
-

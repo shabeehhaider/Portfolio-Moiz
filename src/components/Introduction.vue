@@ -1,91 +1,134 @@
 <template>
-<section class="container-fluid intro">
-  <div class="intro-body">
-    <h1>
-      The Art of Cinematic Storytelling
-    </h1>
-    <p>
-      With a decade of experience in filmmaking and commercial directing, I bring a wealth of expertise in creating captivating 
-      narratives. Holding a master's degree in filmmaking from Punjab 
-      University, Lahore, my journey is driven by passion and dedication.
-      I specialize in the automobile industry, having directed and 
-      conceptualized campaigns for brands like Hyundai, Toyota, Peugeot, 
-      Kia, MG, and Suzuki. Beyond this, I have collaborated with industry 
-      giants such as Coca-Cola, Unilever, and Procter & Gamble, along 
-      with many other international brands, weaving stories that reflect the 
-      human experience.
-      My commitment to authenticity and innovation ensures each project 
-      is a true reflection of my vision. From concept to screen, my work 
-      speaks volumes, leaving a lasting impact on those who experience it.
-    </p>
-  </div>
-</section>
+  <section class="intro" ref="sectionRef">
+    <div class="intro-inner">
+      <div class="intro-label" :class="{ 'is-visible': isVisible }">
+        <span class="eyebrow">About</span>
+        <span class="divider-h"></span>
+      </div>
+      <h2 class="intro-heading" :class="{ 'is-visible': isVisible, 'd2': true }">
+        The Art of<br /><span class="muted-text">Cinematic Storytelling</span>
+      </h2>
+      <div class="intro-body">
+        <p :class="{ 'is-visible': isVisible, 'd3': true }">
+          With a decade of experience in filmmaking and commercial directing, I bring a wealth of expertise in creating captivating narratives. Holding a master's degree in filmmaking from Punjab University, Lahore, my journey is driven by passion and dedication.
+        </p>
+        <p :class="{ 'is-visible': isVisible, 'd4': true }">
+          I specialize in the automobile industry, having directed and conceptualized campaigns for brands like <strong>Hyundai, Toyota, Peugeot, Kia, MG,</strong> and <strong>Suzuki.</strong> Beyond this, I have collaborated with industry giants such as <strong>Coca-Cola, Unilever,</strong> and <strong>Procter &amp; Gamble,</strong> weaving stories that reflect the human experience.
+        </p>
+      </div>
+    </div>
+  </section>
 </template>
+
 <script setup>
+import { ref, onMounted } from 'vue';
+
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  if (sectionRef.value) observer.observe(sectionRef.value);
+});
 </script>
+
 <style lang="scss" scoped>
 .intro {
-  padding: 60px;
-  background: #0e0e0e;
-  text-align: center;
+  background: #080808;
+  padding: 100px 80px;
+  border-top: 1px solid rgba(255,255,255,0.05);
 
-  .intro-body{
-    width: 70%;
-    margin: 90px auto;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 50px;
-    width: 80%;
-    margin: 70px auto;
-  }
-
-  @media (max-width: 768px) {
-    padding: 40px;
-    width: 90%;
-    margin: 50px auto;
-  }
-
-  @media (max-width: 480px) {
-    padding: 30px;
-    width: 95%;
-    margin: 30px auto;
-    .intro-body{
-      width: 100%;
-      margin: 0;
-    }
-  }
+  @media (max-width: 1024px) { padding: 80px 48px; }
+  @media (max-width: 768px)  { padding: 60px 28px; }
+  @media (max-width: 480px)  { padding: 50px 20px; }
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  color: #fefefe;
+.intro-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
 
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
+/* ─ Label row ─────────────────────────────────────────────── */
+.intro-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 
-  @media (max-width: 480px) {
-    font-size: 20px;
-  }
+  &.is-visible { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #1ca973;
+  white-space: nowrap;
+}
+
+.divider-h {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ─ Heading ───────────────────────────────────────────────── */
+.intro-heading {
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 44px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+
+  &.is-visible { opacity: 1; transform: translateY(0); }
+}
+
+.muted-text {
+  color: rgba(255,255,255,0.22);
+}
+
+/* ─ Body ──────────────────────────────────────────────────── */
+.intro-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 p {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  white-space: pre-line;
-  text-align: center;
-  color: #fefefe;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.9;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
 
-  @media (max-width: 768px) {
-    font-size: 16px;
+  &.d4 { transition-delay: 0.32s; }
+  &.is-visible { opacity: 1; transform: translateY(0); }
+
+  strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
   }
 
-  @media (max-width: 480px) {
-    font-size: 14px;
-  }
+  @media (max-width: 768px) { font-size: 15px; }
+  @media (max-width: 480px) { font-size: 14px; }
 }
 </style>

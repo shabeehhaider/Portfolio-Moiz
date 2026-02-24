@@ -38,7 +38,7 @@ onMounted(() => {
 
 <style>
 #app{
-  background: #0e0e0e;
+  background: #080808;
 }
 
 </style>

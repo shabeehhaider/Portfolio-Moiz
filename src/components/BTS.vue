@@ -1,236 +1,274 @@
 <template>
-  <section class="hero">
-    <div class="d-flex">
-      <div class="profile-img col-6">
-        <img class="profile" src="../assets/profile.jpeg" alt="Moiz Zaidi" />
+  <!-- Bio section -->
+  <section class="bts-bio">
+    <div class="bio-inner">
+      <div class="bio-image reveal-left" :class="{ visible: bioVisible }">
+        <div class="img-frame">
+          <img src="../assets/profile.jpeg" alt="Moiz Zaidi" class="profile" />
+        </div>
       </div>
-      <div class="hero-content col-6">
+      <div class="bio-text reveal-right" :class="{ visible: bioVisible }">
+        <span class="eyebrow">The Filmmaker</span>
         <h1>Behind the Lens</h1>
-        <h3>Director, Producer & Creative</h3>
+        <h3>Director · Producer · Creative</h3>
         <p>
           Moiz Zaidi is a visionary filmmaker and commercial director with over a decade of
           experience, celebrated for his unparalleled talent in crafting visually captivating
-          narratives. With a master's degree in filmmaking from the esteemed Punjab University,
-          Lahore, Moiz Zaidi’s mastery of visual storytelling knows no bounds.
+          narratives. With a master's degree in filmmaking from Punjab University, Lahore,
+          his mastery of visual storytelling knows no bounds.
         </p>
         <p>
           Renowned for his ability to breathe life into concepts, Moiz has collaborated with
           industry giants like Hyundai, Toyota, Peugeot, Kia, MG, Suzuki, Coca-Cola, Unilever,
-          and Procter & Gamble, along with many other international brands, consistently
-          delivering exceptional results tailored to their unique brand identities.
+          and Procter &amp; Gamble, consistently delivering exceptional results tailored to
+          their unique brand identities.
         </p>
         <p>
           His global footprint and innate adaptability enable him to seamlessly navigate
-          international projects, infusing his work with a cosmopolitan flair. Beyond TV
-          commercials, Moiz Zaidi’s creative repertoire extends to narrative work and feature
-          films, each bearing his distinctive touch.
-        </p>
-        <p>
-          Driven by an unyielding passion for innovation, Moiz Zaidi remains at the forefront of
-          industry trends, consistently exceeding expectations with flawless productions that leave
-          an indelible mark on audiences worldwide.
+          international projects, infusing his work with a cosmopolitan flair. Driven by an
+          unyielding passion for innovation, Moiz remains at the forefront of industry trends,
+          consistently exceeding expectations with flawless productions.
         </p>
       </div>
     </div>
+    <div ref="bioRef" class="bio-observer"></div>
   </section>
-  <section>
-    <div class="behind-the-scene container">
-      <h1>Behind The Scenes</h1>
-      <div class="masonry">
-        <img src="../assets/bts/bts-1.jpeg" />
-        <img src="../assets/bts/bts-2.jpeg" />
-        <img src="../assets/bts/bts-3.jpeg" />
-        <img src="../assets/bts/bts-4.jpeg" />
-        <img src="../assets/bts/bts-5.jpeg" />
-        <img src="../assets/bts/bts-6.jpeg" />
-        <img src="../assets/bts/bts-7.jpeg" />
-        <img src="../assets/bts/bts-8.jpeg" />
-        <img src="../assets/bts/bts-9.jpeg" />
-        <img src="../assets/bts/bts-10.jpeg" />
-        <img src="../assets/bts/bts-11.jpeg" />
-        <img src="../assets/bts/bts-12.jpeg" />
-        <img src="../assets/bts/bts-13.jpeg" />
-        <img src="../assets/bts/bts-14.jpeg" />
-        <img src="../assets/bts/bts-15.jpeg" />
-        <img src="../assets/bts/bts-16.jpeg" />
-        <img src="../assets/bts/bts-17.jpeg" />
-        <img src="../assets/bts/bts-18.jpeg" />
-        <img src="../assets/bts/bts-19.jpeg" />
-        <img src="../assets/bts/bts-20.jpeg" />
-        <img src="../assets/bts/bts-21.jpeg" />
-        <img src="../assets/bts/bts-22.jpeg" />
-        <img src="../assets/bts/bts-23.jpeg" />
-        <img src="../assets/bts/bts-24.jpeg" />
-        <img src="../assets/bts/bts-25.jpeg" />
-        <img src="../assets/bts/bts-26.jpeg" />
-        <img src="../assets/bts/bts-27.jpeg" />
-        <img src="../assets/bts/bts-28.jpeg" />
-        <img src="../assets/bts/bts-29.jpeg" />
-        <img src="../assets/bts/bts-30.jpeg" />
-        <img src="../assets/bts/bts-31.jpeg" />
+
+  <!-- Gallery section -->
+  <section class="bts-gallery" ref="galleryRef">
+    <div class="gallery-header reveal" :class="{ visible: galleryVisible }">
+      <span class="eyebrow">Behind The Scenes</span>
+      <h2>On Set</h2>
+    </div>
+    <div class="masonry">
+      <div
+        v-for="(img, idx) in btsImages"
+        :key="idx"
+        class="masonry-item"
+        :class="{ visible: galleryVisible }"
+        :style="{ transitionDelay: `${(idx % 6) * 0.06}s` }"
+      >
+        <img
+          :src="img"
+          :alt="`Behind the scenes ${idx + 1}`"
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+
+// Load all BTS images via glob and sort numerically
+const btsModules = import.meta.glob('../assets/bts/*.jpeg', { eager: true });
+const btsImages = Object.entries(btsModules)
+  .sort(([a], [b]) => {
+    const nA = parseInt(a.match(/bts-(\d+)/)?.[1] || '0');
+    const nB = parseInt(b.match(/bts-(\d+)/)?.[1] || '0');
+    return nA - nB;
+  })
+  .map(([, mod]) => mod.default);
+
+const bioRef = ref(null);
+const galleryRef = ref(null);
+const bioVisible = ref(false);
+const galleryVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        bioVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  const observer2 = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        galleryVisible.value = true;
+        observer2.disconnect();
+      }
+    },
+    { threshold: 0.05 }
+  );
+
+  if (bioRef.value) observer.observe(bioRef.value);
+  if (galleryRef.value) observer2.observe(galleryRef.value);
+});
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  background: #0e0e0e;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 50px;
-  padding-top: 200px;
+/* Bio */
+.bts-bio {
+  background: #080808;
+  padding: 140px 80px 80px;
+  position: relative;
 
-  .hero-content {
-    h1 {
-      color: #ffffff;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      letter-spacing: 0px;
-      font-size: 35px;
-      padding-left: 20px;
-      line-height: 35px;
-    }
-
-    h3 {
-      color: #ffffff;
-      font-family: "Poppins", sans-serif;
-      letter-spacing: 0px;
-      font-size: 18px;
-      padding-left: 20px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-family: "Poppins", sans-serif;
-      color: #fff;
-      width: 70%;
-      font-size: 16px;
-      padding-left: 20px;
-    }
+  @media (max-width: 1024px) {
+    padding: 120px 48px 60px;
   }
-
-  .profile-img {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 500px;
-    .profile {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 20px;
-    }
+  @media (max-width: 768px) {
+    padding: 100px 28px 50px;
+  }
+  @media (max-width: 480px) {
+    padding: 90px 20px 40px;
   }
 }
 
-.behind-the-scene {
-  padding: 20px;
-  background: #0e0e0e;
-  h1 {
-    color: #ffffff;
-    font-family: "Poppins", sans-serif;
+.bio-observer {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.bio-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.bio-image {
+  .img-frame {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #111;
+  }
+
+  .profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+
+    &:hover { transform: scale(1.02); }
+  }
+
+  @media (max-width: 900px) {
+    max-width: 360px;
+  }
+}
+
+.bio-text {
+  .eyebrow {
+    display: block;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0px;
-    font-size: 35px;
-    line-height: 35px;
-    text-align: center;
-    margin-bottom: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent, #1ca973);
+    margin-bottom: 16px;
   }
 
-  .masonry {
-    -moz-column-count: 3;
-    -moz-column-gap: 10px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 10px;
-    column-count: 3;
-    column-gap: 10px;
-
-    img {
-      width: 100%;
-      display: block;
-      margin: 10px 0;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    div.d-flex{
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .profile-img,
-    .hero-content {
-      width: 100%;
-      text-align: center;
-    }
-
-    .hero-content {
-      h1,
-      h3,
-      p {
-        padding-left: 0;
-        width: 100%;
-      }
-    }
+  h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin: 0 0 8px;
   }
 
-  .behind-the-scene {
-    .masonry {
-      -moz-column-count: 2;
-      -webkit-column-count: 2;
-      column-count: 2;
-    }
+  h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+    margin: 0 0 32px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    margin: 0 0 18px;
+
+    &:last-child { margin-bottom: 0; }
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 20px;
+/* Gallery */
+.bts-gallery {
+  background: #080808;
+  padding: 60px 80px 100px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
-    div.d-flex{
-      flex-direction: column;
-      gap: 20px;
-    }
+  @media (max-width: 768px) {
+    padding: 50px 28px 80px;
+  }
+  @media (max-width: 480px) {
+    padding: 40px 16px 60px;
+  }
+}
 
-    .profile-img {
-      height: auto;
-      .profile {
-        width: 100%;
-        height: auto;
-      }
-    }
+.gallery-header {
+  margin-bottom: 48px;
 
-    .hero-content {
-      h1 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-    }
+  .eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent, #1ca973);
+    margin-bottom: 12px;
   }
 
-  .behind-the-scene {
-    .masonry {
-      -moz-column-count: 1;
-      -webkit-column-count: 1;
-      column-count: 1;
-    }
+  h2 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+    margin: 0;
+  }
+}
+
+.masonry {
+  columns: 3;
+  column-gap: 12px;
+
+  @media (max-width: 768px) { columns: 2; }
+  @media (max-width: 480px) { columns: 1; }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+
+    &:hover { transform: scale(1.02); }
   }
 }
 </style>

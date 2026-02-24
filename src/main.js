@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import './style.css';
 import VueSplide from '@splidejs/vue-splide';
 import { Quasar, QIcon } from 'quasar'; // Import QIcon directly if needed
 

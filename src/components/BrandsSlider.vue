@@ -1,13 +1,16 @@
 <template>
-  <section class="brands">
-    <h1>
-      Clients & Agencies
-    </h1>
-    <div>
-      <Splide :options="options" aria-label="Brand Images">
+  <section class="brands-section" ref="sectionRef">
+    <div class="section-label reveal" :class="{ visible: isVisible }">
+      <span class="eyebrow">Trusted By</span>
+      <span class="divider-h"></span>
+      <span class="eyebrow">Clients &amp; Agencies</span>
+    </div>
+
+    <div class="slider-wrap reveal" :class="{ visible: isVisible, 'reveal-delay-2': true }">
+      <Splide :options="options" aria-label="Clients and Agencies">
         <SplideSlide v-for="(image, index) in images" :key="index">
-          <div class="image-container">
-            <img :src="image" />
+          <div class="logo-cell">
+            <img :src="image" :alt="'Brand ' + (index + 1)" loading="lazy" />
           </div>
         </SplideSlide>
       </Splide>
@@ -16,11 +19,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import '@splidejs/vue-splide/css';
-import '@splidejs/vue-splide/css/skyblue';
-import '@splidejs/vue-splide/css/sea-green';
+import { ref, onMounted } from 'vue';
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css/core';
+
 import img1 from '../assets/brands/bank-alflah.png';
 import img2 from '../assets/brands/bata.png';
 import img3 from '../assets/brands/bisconni.jpg';
@@ -66,133 +68,126 @@ import img42 from '../assets/brands/adcomleo.jpg';
 import img43 from '../assets/brands/wrt.jpeg';
 import img44 from '../assets/brands/mobily.jpeg';
 
-// Define the options for Splide
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
 const options = {
-  rewind: true,
-  autoWidth: true,
   type: 'loop',
   autoplay: true,
-  interval: 1000,
-  perPage: 5,
+  interval: 1200,
+  perPage: 6,
   perMove: 1,
-  gap: '4rem',
-  padding: '1.5rem',
-  arrows : true,
-  pagination : false,
+  gap: '40px',
+  padding: '2rem',
+  arrows: false,
+  pagination: false,
+  drag: false,
+  breakpoints: {
+    1024: { perPage: 5, gap: '28px' },
+    768: { perPage: 4, gap: '20px' },
+    480: { perPage: 3, gap: '16px' },
+  },
 };
 
-// Define the images array
 const images = ref([
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
-  img14,
-  img15,
-  img16,
-  img17,
-  img18,
-  img19,
-  img20,
-  img21,
-  img22,
-  img23,
-  img24,
-  img25,
-  img26,
-  img27,
-  img28,
-  img29,
-  img30,
-  img31,
-  img32,
-  img33,
-  img34,
-  img35,
-  img36,
-  img37,
-  img38,
-  img39,
-  img40,
-  img41,
-  img42,
-  img43,
-  img44,
+  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
+  img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
+  img41, img42, img43, img44,
 ]);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.15 }
+  );
+  if (sectionRef.value) observer.observe(sectionRef.value);
+});
 </script>
 
 <style lang="scss" scoped>
-.brands {
-  background: #0e0e0e;
-  padding: 150px 0px;
+.brands-section {
+  background: #080808;
+  padding: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 80px 48px;
+
+  @media (max-width: 768px) {
+    padding: 0 28px 32px;
+  }
+  @media (max-width: 480px) {
+    padding: 0 20px 24px;
+  }
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+.divider-h {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.slider-wrap {
   position: relative;
-  margin-top: -20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 
-  h1 {
-    color: #fefefe; 
-    font-size: 24px;
-    font-weight: 600; 
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    margin-bottom: 40px;
+  /* Fade edges */
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
   }
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #080808, transparent);
+  }
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #080808, transparent);
+  }
+}
 
-  .image-container {
-    width: 150px;
-    height: 150px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; // Center images horizontally
-  }
+.logo-cell {
+  width: 120px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 
   img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
   }
 
-  @media (max-width: 768px) {
-    padding: 40px 0px;
-
-    h1 {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .image-container {
-      width: 120px;
-      height: 120px;
-      padding: 15px;
-    }
-  }
-
   @media (max-width: 480px) {
-    padding: 30px 0px;
-
-    h1 {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .image-container {
-      width: 100px;
-      height: 100px;
-      padding: 10px;
-    }
+    width: 80px;
+    height: 44px;
   }
 }
 </style>
-
