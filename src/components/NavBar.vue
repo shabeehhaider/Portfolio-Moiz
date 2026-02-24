@@ -113,14 +113,14 @@ onUnmounted(() => {
 
 .logo-wrap {
   img {
-    height: 84px;
+    height: 120px;
     width: auto;
     display: block;
     object-fit: contain;
     transition: height 0.35s ease;
 
     .scrolled & {
-      height: 66px;
+      height: 94px;
     }
   }
 }
@@ -298,7 +298,7 @@ onUnmounted(() => {
   }
 
   .logo-wrap img {
-    height: 66px;
+    height: 94px;
   }
 
   .nav-icon {
@@ -324,7 +324,7 @@ onUnmounted(() => {
   }
 
   .logo-wrap img {
-    height: 58px;
+    height: 70px;
   }
 
   /* Hide email/phone on very small screens */
