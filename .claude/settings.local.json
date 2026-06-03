@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(echo no js files:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(cp \"C:/projects/point-14/data/clients.ts\" \"C:/projects/Portfolio-Moiz/nuxt/data/clients.ts\")",
+      "Bash(cp \"C:/projects/point-14/data/bts.ts\" \"C:/projects/Portfolio-Moiz/nuxt/data/bts.ts\")",
+      "PowerShell(Set-Location \"C:\\\\projects\\\\Portfolio-Moiz\\\\nuxt\"; $env:NUXT_VIMEO_TOKEN = \"46327ad9e7494bba27e48968e005d6b9\"; $env:PORT = \"3057\"; node .output/server/index.mjs)",
+      "PowerShell(Set-Location \"C:\\\\projects\\\\Portfolio-Moiz\\\\nuxt\"; $env:NUXT_VIMEO_TOKEN = \"46327ad9e7494bba27e48968e005d6b9\"; $env:PORT = \"3058\"; node .output/server/index.mjs)",
+      "PowerShell(Set-Location \"C:\\\\projects\\\\Portfolio-Moiz\\\\nuxt\"; $env:NUXT_VIMEO_TOKEN = \"46327ad9e7494bba27e48968e005d6b9\"; $env:PORT = \"3059\"; node .output/server/index.mjs)",
+      "PowerShell(Set-Location \"C:\\\\projects\\\\Portfolio-Moiz\\\\nuxt\"; $env:BASE = \"http://localhost:3059\"; node audit-responsive.mjs 2>&1)"
     ]
   }
 }
