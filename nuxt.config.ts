@@ -16,12 +16,13 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // ISR for the archive — regenerated hourly. SEO-friendly, lightweight.
+    // ISR for the archive + project pages — regenerated hourly. SEO-friendly, lightweight.
     '/work': { isr: 3600 },
     '/work/**': { isr: 3600 },
-    // long-lived immutable static assets
+    // Long-lived immutable caching for static assets.
+    // NOTE: no '/work/**' here — that glob would also match the project PAGES
+    // (/work/easypaisa) and pin their HTML in caches for a year.
     '/brands/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    '/work/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/bts/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/videos/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
   },
