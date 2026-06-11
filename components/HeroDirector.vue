@@ -14,7 +14,7 @@
         <span class="rec"><span class="dot" /> REC · ON THE FLOOR</span>
       </div>
       <div class="col end">
-        <span>Reel · 2024 — 2026</span>
+        <span>Reel · 2020 — 2026</span>
         <strong>{{ timecode }}</strong>
       </div>
     </div>
