@@ -21,23 +21,24 @@
       </div>
     </button>
 
-    <VideoModal v-model="open" :src="embed" title="Moiz Zaidi — Showreel" subtitle="Selected work · 2024—2026" />
+    <VideoModal v-model="open" :video="video" :src="embed" title="Moiz Zaidi — Showreel" subtitle="Selected work · 2020—2026" />
   </div>
 </template>
 
 <script setup lang="ts">
-// NOTE: swap `embed` for the canonical showreel once it's published on Vimeo.
 const props = withDefaults(defineProps<{
   poster?: string
+  video?: string   // local mp4 — plays in the modal. Falls back to `embed` if empty.
   embed?: string
   runtime?: string
 }>(), {
   poster: '/profile/hero.jpeg',
+  video: '/videos/showreel.mp4',
   embed: 'https://player.vimeo.com/video/954954489',
   runtime: '02:38'
 })
 const open = ref(false)
-const { poster, embed, runtime } = toRefs(props)
+const { poster, video, embed, runtime } = toRefs(props)
 </script>
 
 <style scoped>

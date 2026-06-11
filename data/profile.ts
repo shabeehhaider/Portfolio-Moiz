@@ -48,7 +48,7 @@ export const profile = {
   phoneHref: 'tel:+923334454814',
   whatsappHref: 'https://wa.me/923334454814',
   website: 'moizzaidi.com',
-  address: ['22-C Khayaban-e-Shamsheer', 'Phase V Ext, DHA', 'Karachi 75500, PK'],
+  address: ['84-C Khayaban e jami Phase 2 Ext-DHA  Karachi', 'Phase V Ext, DHA', 'Karachi 75500, PK'],
 
   socials: [
     { label: 'Instagram', href: 'https://www.instagram.com/moiz.zaidi', icon: 'instagram' },

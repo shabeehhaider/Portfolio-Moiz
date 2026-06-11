@@ -29,6 +29,38 @@ export interface Project {
 // Plus a curated tail of real Moiz Zaidi work for the detail pages & archive.
 export const projects: Project[] = [
   {
+    slug: 'omoda-jaecoo',
+    index: '01',
+    title: 'OMODA',
+    titleItalic: 'Jaecoo',
+    category: 'Commercial',
+    year: 2025,
+    client: 'OMODA & JAECOO',
+    runtime: '00:59',
+    aspect: '16:9',
+    size: 'wide',
+    featured: true,
+    // Streamed from Vimeo (not a downloaded mp4) — so no local hover preview;
+    // the poster is Vimeo's own thumbnail and the film plays from the embed.
+    poster: 'https://i.vimeocdn.com/video/2108562709-ae673c5867540bc2ce7453e0685f743793d034bd7b90bfb165b9d931e10a0650-d_1280x720?&r=pad&region=us',
+    videoEmbed: 'https://player.vimeo.com/video/1155754454?autoplay=1',
+    blurb: 'The cinematic launch film for OMODA & JAECOO.',
+    description: [
+      'The hero launch TVC for OMODA & JAECOO — directed for scale, cut to feel premium and kinetic.',
+      'A full commercial build across location and stage, with car-mounted rigs, edited to a tight sixty.'
+    ],
+    credits: [
+      { role: 'Client', name: 'OMODA & JAECOO' },
+      { role: 'Director', name: 'Moiz Zaidi' },
+      { role: 'Format', name: 'TVC · 60s' }
+    ],
+    scenes: [
+      { label: 'OPEN · Reveal', sub: '00:00 — 00:10', tone: 'cool' },
+      { label: 'Drive · Hero', sub: '00:24 — 00:38', tone: 'amber' },
+      { label: 'OUT · Logo', sub: '00:50 — 00:59', tone: 'red' }
+    ]
+  },
+  {
     slug: 'easypaisa',
     index: '01',
     title: 'Easy',
@@ -39,7 +71,7 @@ export const projects: Project[] = [
     runtime: '01:30',
     aspect: '16:9',
     size: 'wide',
-    featured: true,
+    featured: false,
     poster: '/work/jab-sab-kuch-easy-paisa-se-hojaye-toh-karo-kuchbhi.jpeg',
     videoPreview: '/videos/EasyPaisa.mp4',
     videoEmbed: 'https://player.vimeo.com/video/954954489?autoplay=1',
@@ -91,34 +123,34 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: 'mobily',
+    slug: 'toyota-gazoo-flag-rush',
     index: '03',
-    title: '',
-    titleItalic: 'Mobily',
+    title: 'Toyota GR —',
+    titleItalic: 'Flag Rush',
     category: 'Commercial',
-    year: 2024,
-    client: 'Mobily',
-    runtime: '01:00',
+    year: 2025,
+    client: 'Toyota Gazoo Racing',
+    runtime: '00:51',
     aspect: '16:9',
     size: 'std',
     featured: true,
-    poster: '/work/mobily-sequence-1.png',
-    videoPreview: '/videos/mobilysequence.mp4',
-    videoEmbed: 'https://www.youtube.com/embed/cGYQimv2NUI?autoplay=1',
-    blurb: 'Connecting people to unforgettable moments.',
+    // Streamed from Vimeo (not a downloaded mp4) — Vimeo thumbnail + embed.
+    poster: 'https://i.vimeocdn.com/video/2105438609-729e6f0a24b2b542abd95bd8405af1893b1f66942804e75eef2681c884690489-d_1280x720?&r=pad&region=us',
+    videoEmbed: 'https://player.vimeo.com/video/1153460796?autoplay=1',
+    blurb: 'A high-octane teaser for Toyota Gazoo Racing.',
     description: [
-      'A four-part sequence film shot for Mobily across Riyadh and Jeddah. Each chapter handed off to the next with a single unbroken cut.',
-      'Featured on Saudi national TV and across MENA digital.'
+      'The launch teaser for Toyota Gazoo Racing’s Flag Rush — built for speed, adrenaline and the roar of the grid.',
+      'Cut tight at fifty-one seconds to drop across broadcast and social.'
     ],
     credits: [
-      { role: 'Client', name: 'Mobily' },
-      { role: 'Region', name: 'KSA / MENA' },
-      { role: 'Director', name: 'Moiz Zaidi' }
+      { role: 'Client', name: 'Toyota Gazoo Racing' },
+      { role: 'Director', name: 'Moiz Zaidi' },
+      { role: 'Format', name: 'Teaser · 51s' }
     ],
     scenes: [
-      { label: 'Ch. I · Rooftop', sub: '00:00 — 00:14', tone: 'amber' },
-      { label: 'Ch. II · Drive', sub: '00:24 — 00:38', tone: 'cool' },
-      { label: 'Ch. IV · Family', sub: '00:48 — 01:00' }
+      { label: 'OPEN · Grid', sub: '00:00 — 00:08', tone: 'red' },
+      { label: 'Launch · Flag', sub: '00:18 — 00:30', tone: 'amber' },
+      { label: 'OUT · Logo', sub: '00:42 — 00:51', tone: 'cool' }
     ]
   },
   {
@@ -182,63 +214,65 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: 'panther-tyres',
+    slug: 'sego-tvc-2025',
     index: '06',
-    title: 'Panther',
-    titleItalic: 'King',
+    title: 'Sego —',
+    titleItalic: 'TVC 2025',
     category: 'Commercial',
-    year: 2023,
-    client: 'Panther Tyres',
-    runtime: '01:30',
-    aspect: '2.39:1',
+    year: 2025,
+    client: 'Sego',
+    runtime: '00:52',
+    aspect: '16:9',
     size: 'wide',
     featured: true,
-    poster: '/work/panther-tyres-king56.jpeg',
-    videoPreview: '/videos/panther-tyre-king.mp4',
-    videoEmbed: 'https://player.vimeo.com/video/952827765?autoplay=1',
-    blurb: 'Grip the road with unmatched quality.',
+    // Streamed from Vimeo (not a downloaded mp4) — Vimeo thumbnail + embed.
+    poster: 'https://i.vimeocdn.com/video/2102460033-b9a6b1855f14f2b49588edee714ed1a496df957d07c511d316627f2b7b8ef1ba-d_1280x720?&r=pad&region=us',
+    videoEmbed: 'https://player.vimeo.com/video/1073447381?autoplay=1',
+    blurb: 'The 2025 brand TVC for Sego.',
     description: [
-      'A heavyweight automotive spot — six hero shots, all in-camera, no CG smoke.',
-      'Shot at Multan motor speedway over two pre-dawn days.'
+      'A bright, fast-cut brand film for Sego — energetic and built for broadcast.',
+      'Delivered as a 52-second TVC with social cut-downs.'
     ],
     credits: [
-      { role: 'Client', name: 'Panther Tyres' },
-      { role: 'Director', name: 'Moiz Zaidi' }
+      { role: 'Client', name: 'Sego' },
+      { role: 'Director', name: 'Moiz Zaidi' },
+      { role: 'Format', name: 'TVC · 52s' }
     ],
     scenes: [
-      { label: 'Burnout · Wide', sub: '00:00 — 00:12', tone: 'red' },
-      { label: 'CU · Tread', sub: '00:32 — 00:40', tone: 'amber' },
-      { label: 'Hero · Sunrise', sub: '01:14 — 01:30', tone: 'amber' }
+      { label: 'OPEN · Hook', sub: '00:00 — 00:08', tone: 'amber' },
+      { label: 'Mid · Product', sub: '00:20 — 00:34', tone: 'cool' },
+      { label: 'OUT · Logo', sub: '00:44 — 00:52', tone: 'red' }
     ]
   },
   {
-    slug: 'mcdonalds-yeh-such-hai',
+    slug: 'honda-city',
     index: '07',
-    title: "McDonald's —",
-    titleItalic: 'Yeh Such Hai',
+    title: 'Honda',
+    titleItalic: 'City',
     category: 'Commercial',
-    year: 2023,
-    client: "McDonald's",
-    runtime: '01:00',
+    year: 2025,
+    client: 'Honda',
+    runtime: '01:04',
     aspect: '16:9',
     size: 'std',
     featured: true,
-    poster: '/work/mcdonalds-yeh-such-hai.jpeg',
-    videoPreview: '/videos/mcDonald.mp4',
-    videoEmbed: 'https://player.vimeo.com/video/952827227?autoplay=1',
-    blurb: 'Three families. Three orders. One table.',
+    // Streamed from Vimeo (not a downloaded mp4) — Vimeo thumbnail + embed.
+    poster: 'https://i.vimeocdn.com/video/2105438254-53e565c31bfc409359025879b33119fbe63a4375e34fdb01bce17e033fde2ccf-d_1280x720?&r=pad&region=us',
+    videoEmbed: 'https://player.vimeo.com/video/1153462425?autoplay=1',
+    blurb: 'The launch film for the new Honda City.',
     description: [
-      'A warm, character-led spot built around a single table and three very different families.',
-      'Cut for TV (60s + 30s) and a vertical-native social campaign.'
+      'The launch commercial for the Honda City — clean, modern and built around the car as hero.',
+      'Shot single-camera and cut tight for broadcast and digital.'
     ],
     credits: [
-      { role: 'Client', name: "McDonald's Pakistan" },
-      { role: 'Director', name: 'Moiz Zaidi' }
+      { role: 'Client', name: 'Honda' },
+      { role: 'Director', name: 'Moiz Zaidi' },
+      { role: 'Format', name: 'TVC · 64s' }
     ],
     scenes: [
-      { label: 'Family · Order', sub: '00:00 — 00:12' },
-      { label: 'CU · The bite', sub: '00:24 — 00:32', tone: 'amber' },
-      { label: 'OUT · Table', sub: '00:48 — 01:00', tone: 'amber' }
+      { label: 'OPEN · Street', sub: '00:00 — 00:12', tone: 'cool' },
+      { label: 'Drive · City', sub: '00:28 — 00:44', tone: 'amber' },
+      { label: 'OUT · Logo', sub: '00:54 — 01:04', tone: 'red' }
     ]
   },
   {
@@ -374,6 +408,17 @@ export const projects: Project[] = [
     scenes: [{ label: 'Table · Wide', sub: '00:06 — 00:18', tone: 'red' }]
   }
 ]
+
+// Display index ("01", "02", …) is derived automatically: featured films are
+// numbered first (so the home grid always reads 01..N with no gaps), then the
+// rest of the archive continues after. Re-ordering never desyncs the numbering.
+{
+  const pad = (n: number) => String(n).padStart(2, '0')
+  const feat = projects.filter(p => p.featured)
+  const rest = projects.filter(p => !p.featured)
+  feat.forEach((p, i) => { p.index = pad(i + 1) })
+  rest.forEach((p, i) => { p.index = pad(feat.length + i + 1) })
+}
 
 export const featuredProjects = projects.filter(p => p.featured)
 

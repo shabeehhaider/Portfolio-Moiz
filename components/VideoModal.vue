@@ -1,11 +1,22 @@
 <template>
   <Teleport to="body">
     <Transition name="wipe">
-      <div v-if="modelValue && src" class="modal" @click="close" role="dialog" aria-modal="true">
+      <div v-if="modelValue && (src || video)" class="modal" @click="close" role="dialog" aria-modal="true">
         <div class="modal-inner" @click.stop>
           <button class="close" @click="close" aria-label="Close player">×</button>
           <div class="player">
+            <!-- local mp4 (e.g. the showreel) -->
+            <video
+              v-if="video"
+              :src="video"
+              :title="title"
+              controls
+              autoplay
+              playsinline
+              preload="metadata" />
+            <!-- otherwise a Vimeo / YouTube embed -->
             <iframe
+              v-else
               :src="iframeSrc"
               :title="title"
               frameborder="0"
@@ -26,7 +37,8 @@
 <script setup lang="ts">
 const props = defineProps({
   modelValue: { type: Boolean, default: false },
-  src: { type: String, default: '' },
+  src: { type: String, default: '' },     // Vimeo / YouTube embed URL
+  video: { type: String, default: '' },   // local mp4 path (takes priority over src)
   title: { type: String, default: '' },
   subtitle: { type: String, default: '' }
 })
@@ -85,7 +97,7 @@ onBeforeUnmount(() => {
   background: #000;
   border: 1px solid var(--line);
 }
-.player iframe { width: 100%; height: 100%; border: 0; display: block; }
+.player iframe, .player video { width: 100%; height: 100%; border: 0; display: block; object-fit: contain; background: #000; }
 
 .meta {
   display: flex; align-items: center; gap: 16px;

@@ -4,8 +4,8 @@
  * - Server-only — the access token never reaches the browser.
  * - Cached in memory for 1 hour (varies by `?refresh=1` for manual bust).
  * - Returns a lean payload: only the fields the grid actually renders.
- * - Up to 100 videos per call (Vimeo's max per_page). For Moiz's ~80-video archive
- *   that means a single round-trip covers everything; the client paginates locally.
+ * - Pages through Vimeo (100/req max) so the whole archive is returned even past
+ *   100 videos; the client then paginates locally for the grid.
  */
 
 export interface WorkItem {
@@ -77,18 +77,30 @@ export default defineCachedEventHandler(async (event): Promise<{ items: WorkItem
   }
 
   try {
-    const res = await $fetch<VimeoResponse>('https://api.vimeo.com/me/videos', {
-      headers: { Authorization: `Bearer ${config.vimeoToken}` },
-      query: {
-        page: 1,
-        per_page: 100,
-        fields: 'uri,name,description,duration,created_time,pictures,embed,tags',
-        sort: 'date',
-        direction: 'desc'
-      }
-    })
+    // Vimeo caps per_page at 100, so once the archive grows past 100 a single
+    // request silently drops the oldest videos. Page through until we have them all.
+    const PER_PAGE = 100
+    const MAX_PAGES = 10 // safety backstop (1000 videos)
+    const videos: VimeoVideo[] = []
+    let total = 0
 
-    const items: WorkItem[] = res.data.map(v => {
+    for (let page = 1; page <= MAX_PAGES; page++) {
+      const res = await $fetch<VimeoResponse>('https://api.vimeo.com/me/videos', {
+        headers: { Authorization: `Bearer ${config.vimeoToken}` },
+        query: {
+          page,
+          per_page: PER_PAGE,
+          fields: 'uri,name,description,duration,created_time,pictures,embed,tags',
+          sort: 'date',
+          direction: 'desc'
+        }
+      })
+      total = res.total
+      videos.push(...res.data)
+      if (videos.length >= res.total || res.data.length < PER_PAGE) break
+    }
+
+    const items: WorkItem[] = videos.map(v => {
       const id = v.uri.split('/').pop()!
       const tags = (v.tags || []).map(t => t.name)
       return {
@@ -105,7 +117,7 @@ export default defineCachedEventHandler(async (event): Promise<{ items: WorkItem
       }
     })
 
-    return { items, total: res.total, fetchedAt: new Date().toISOString() }
+    return { items, total, fetchedAt: new Date().toISOString() }
   } catch (err: any) {
     console.error('[work.get] Vimeo fetch failed:', err?.message)
     // graceful degradation — let the client render its skeleton + show empty state
